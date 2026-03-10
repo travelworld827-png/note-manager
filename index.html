@@ -612,12 +612,16 @@ body{
 
 <!-- ========== MEETING ========== -->
 <section class="panel" id="panel-meeting">
-  <div class="ph">
-    <div class="ptit">
+  <div class="ph" style="gap:8px">
+    <div class="ptit" style="flex:1;min-width:0">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
       Meeting Recorder
     </div>
     <div id="meetBadge" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
+    <button class="btn bp" id="analyzeMeetBtn" style="flex-shrink:0;font-size:12px;padding:7px 12px;min-height:34px;white-space:nowrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      AI Analyze
+    </button>
   </div>
   <div class="ca" id="meetScrollArea">
     <!-- iOS notice -->
@@ -690,13 +694,7 @@ body{
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Agenda / Notes</h3>
       <textarea class="ta" id="meetNotes" rows="3" placeholder="Add agenda items or manual notes…"></textarea>
     </div>
-    <div class="sc">
-      <button class="btn bp" id="analyzeMeetBtn" style="width:100%;justify-content:center;font-size:15px;padding:14px">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        AI Analyze Meeting
-      </button>
-      <div id="meetLoad" class="ait" style="display:none;margin-top:10px"><div class="dp"><span></span><span></span><span></span></div> Analyzing meeting…</div>
-    </div>
+    <div id="meetLoad" class="ait" style="display:none;margin:4px 0 8px"><div class="dp"><span></span><span></span><span></span></div> Analyzing meeting…</div>
     <div id="meetSumSec" style="display:none">
       <div class="fl">Meeting Analysis</div>
       <div class="rb rba" id="meetSummary"></div>

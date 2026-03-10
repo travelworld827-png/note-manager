@@ -477,16 +477,22 @@ body{
 
 <!-- ========== VOICE ========== -->
 <section class="panel" id="panel-voice">
-  <div class="ph">
-    <div class="ptit">
+  <div class="ph" style="padding-bottom:0;flex-direction:column;align-items:stretch;gap:0">
+    <div class="ptit" style="padding-bottom:10px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-      Voice Recording &amp; Translation
+      Voice &amp; Translation
+    </div>
+    <div style="display:flex;gap:0;border-top:1px solid var(--border)">
+      <button id="vctab1" onclick="vcTab(1)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:var(--glow);color:var(--ac);border:none;border-bottom:2px solid var(--ac);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">🎙️ Record</button>
+      <button id="vctab2" onclick="vcTab(2)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:transparent;color:var(--t2);border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">🌐 Translate</button>
     </div>
   </div>
-  <div class="ca">
-    <div class="sc">
+
+  <!-- TAB 1: Record -->
+  <div class="ca" id="vcPane1">
+    <div class="sc fxc gap12">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>Speech to Text</h3>
-      <div style="margin-bottom:11px">
+      <div>
         <div class="fl">Recording Language</div>
         <select class="sel" id="voiceLang">
           <option value="en-US">🇺🇸 English (US)</option>
@@ -506,7 +512,7 @@ body{
           <option value="ur-PK">🇵🇰 Urdu</option>
         </select>
       </div>
-      <div class="fx gap8 aic wrap" style="margin-bottom:11px">
+      <div class="fx gap8 aic wrap">
         <button class="btn bp" id="voiceStartBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
           Start Recording
@@ -518,20 +524,27 @@ body{
         <div id="voiceRecInd" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
       </div>
       <div id="voiceWfDiv" style="display:none"><div class="wf" id="voiceWfBars"></div></div>
-      <div class="fl">Transcript</div>
-      <textarea class="ta" id="voiceTranscript" rows="5" placeholder="Your speech will appear here…"></textarea>
-      <div class="fx gap8 wrap" style="margin-top:8px">
-        <button class="btn bs" onclick="clipCopy(document.getElementById('voiceTranscript').value)">Copy</button>
-        <button class="btn bs" onclick="sendToNote(document.getElementById('voiceTranscript').value)">Send to Notes</button>
+      <div>
+        <div class="fl">Transcript</div>
+        <textarea class="ta" id="voiceTranscript" rows="6" placeholder="Your speech will appear here…"></textarea>
+      </div>
+      <div class="fx gap8 wrap">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('voiceTranscript').value)">📋 Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('voiceTranscript').value)">📝 Send to Notes</button>
       </div>
     </div>
-    <div class="sc">
+  </div>
+
+  <!-- TAB 2: Translate -->
+  <div class="ca" id="vcPane2" style="display:none">
+    <div class="sc fxc gap12">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Translate Text</h3>
-      <div class="g2">
-        <div><div class="fl">Source Text</div><textarea class="ta" id="transSrc" rows="6" placeholder="Type or paste text to translate…"></textarea></div>
-        <div><div class="fl">Translation</div><div class="rb rba" id="transResult" style="min-height:120px">Translation will appear here…</div></div>
+      <div>
+        <div class="fl">Source Text</div>
+        <textarea class="ta" id="transSrc" rows="5" placeholder="Type or paste text to translate…"></textarea>
       </div>
-      <div class="fx gap8 aic wrap" style="margin-top:10px">
+      <div>
+        <div class="fl">Translate To</div>
         <select class="sel" id="transLang">
           <option value="British English">🇬🇧 British English</option>
           <option value="American English">🇺🇸 American English (US)</option>
@@ -556,12 +569,19 @@ body{
           <option value="Hebrew">Hebrew (עברית)</option>
           <option value="Persian">Persian (فارسی)</option>
         </select>
-        <button class="btn bp" id="translateBtn">Translate</button>
-        <div id="transLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Translating…</div>
       </div>
-      <div class="fx gap8 wrap" style="margin-top:8px">
-        <button class="btn bs" onclick="clipCopy(document.getElementById('transResult').textContent)">Copy Translation</button>
-        <button class="btn bs" onclick="sendToNote(document.getElementById('transResult').textContent)">Send to Notes</button>
+      <button class="btn bp" id="translateBtn" style="width:100%;justify-content:center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Translate
+      </button>
+      <div id="transLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Translating…</div>
+      <div>
+        <div class="fl">Translation</div>
+        <div class="rb rba" id="transResult" style="min-height:120px">Translation will appear here…</div>
+      </div>
+      <div class="fx gap8 wrap">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('transResult').textContent)">📋 Copy Translation</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('transResult').textContent)">📝 Send to Notes</button>
       </div>
     </div>
   </div>
@@ -569,14 +589,22 @@ body{
 
 <!-- ========== REWRITE ========== -->
 <section class="panel" id="panel-rewrite">
-  <div class="ph">
-    <div class="ptit">
+  <div class="ph" style="padding-bottom:0;flex-direction:column;align-items:stretch;gap:0">
+    <div class="ptit" style="padding-bottom:10px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       AI Text Rewriter
     </div>
+    <div style="display:flex;gap:0;border-top:1px solid var(--border)">
+      <button id="rwtab1" onclick="rwTab(1)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:var(--glow);color:var(--ac);border:none;border-bottom:2px solid var(--ac);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">✏️ Write</button>
+      <button id="rwtab2" onclick="rwTab(2)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:transparent;color:var(--t2);border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">✨ Result</button>
+    </div>
   </div>
-  <div class="ca">
-    <div class="sc"><div class="fl">Original Text</div><textarea class="ta" id="rewriteInput" rows="6" placeholder="Paste or type text to rewrite…"></textarea></div>
+  <!-- TAB 1: Input + Style + Rewrite button -->
+  <div class="ca" id="rwPane1">
+    <div class="sc">
+      <div class="fl">Original Text</div>
+      <textarea class="ta" id="rewriteInput" rows="6" placeholder="Paste or type text to rewrite…"></textarea>
+    </div>
     <div class="sc">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Writing Style</h3>
       <div class="cg" id="styleChips">
@@ -592,19 +620,23 @@ body{
         <div class="chip" data-v="Executive Summary">Executive</div>
       </div>
     </div>
-    <div class="fx gap8 aic">
-      <button class="btn bp" id="rewriteBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        Rewrite Text
-      </button>
-      <div id="rewriteLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Rewriting…</div>
-    </div>
-    <div id="rewriteSec" style="display:none">
-      <div class="fl">Rewritten Text</div>
-      <div class="rb rba" id="rewriteResult"></div>
-      <div class="fx gap8 wrap" style="margin-top:9px">
-        <button class="btn bs" onclick="clipCopy(document.getElementById('rewriteResult').textContent)">Copy</button>
-        <button class="btn bs" onclick="sendToNote(document.getElementById('rewriteResult').textContent)">Send to Notes</button>
+    <button class="btn bp" id="rewriteBtn" style="width:100%;justify-content:center">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      Rewrite Text
+    </button>
+    <div id="rewriteLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Rewriting…</div>
+  </div>
+  <!-- TAB 2: Result -->
+  <div class="ca" id="rwPane2" style="display:none">
+    <div class="sc fxc gap10">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Rewritten Text</h3>
+      <div id="rewriteSec">
+        <div class="rb rba" id="rewriteResult" style="min-height:200px"></div>
+        <div class="fx gap8 wrap" style="margin-top:9px">
+          <button class="btn bs" onclick="clipCopy(document.getElementById('rewriteResult').textContent)">📋 Copy</button>
+          <button class="btn bs" onclick="sendToNote(document.getElementById('rewriteResult').textContent)">📝 Send to Notes</button>
+          <button class="btn bp" onclick="rwTab(1)" style="margin-left:auto">✏️ Edit</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1525,12 +1557,12 @@ document.getElementById('rewriteBtn').addEventListener('click', function(){
   var text=document.getElementById('rewriteInput').value.trim();
   if(!text){ toast('Enter text to rewrite','var(--t2)'); return; }
   var btn=document.getElementById('rewriteBtn'),ld=document.getElementById('rewriteLoad'),sec=document.getElementById('rewriteSec'),res=document.getElementById('rewriteResult');
-  btn.disabled=true; ld.style.display='flex'; sec.style.display='none';
+  btn.disabled=true; ld.style.display='flex';
   callClaude(
     'Rewrite this text in a '+selStyle+' style. Keep all information but completely transform the writing style:\n\n'+text,
     null, 1800,
-    function(r){ res.textContent=r; sec.style.display='block'; btn.disabled=false; ld.style.display='none'; },
-    function(e){ res.textContent='Error: '+e; sec.style.display='block'; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
+    function(r){ res.textContent=r; btn.disabled=false; ld.style.display='none'; rwTab(2); },
+    function(e){ res.textContent='Error: '+e; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
   );
 });
 
@@ -1680,6 +1712,36 @@ document.getElementById('analyzeMeetBtn').addEventListener('click', function(){
     function(e){ res.textContent='Error: '+e; sec.style.display='block'; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
   );
 });
+
+/* ======================================================
+   REWRITE TABS
+====================================================== */
+function rwTab(n){
+  [1,2].forEach(function(i){
+    var pane=document.getElementById('rwPane'+i);
+    var tab=document.getElementById('rwtab'+i);
+    if(pane) pane.style.display=(i===n)?'flex':'none';
+    if(tab){
+      if(i===n){ tab.style.background='var(--glow)'; tab.style.color='var(--ac)'; tab.style.borderBottom='2px solid var(--ac)'; }
+      else { tab.style.background='transparent'; tab.style.color='var(--t2)'; tab.style.borderBottom='2px solid transparent'; }
+    }
+  });
+}
+
+/* ======================================================
+   VOICE TABS
+====================================================== */
+function vcTab(n){
+  [1,2].forEach(function(i){
+    var pane=document.getElementById('vcPane'+i);
+    var tab=document.getElementById('vctab'+i);
+    if(pane) pane.style.display=(i===n)?'flex':'none';
+    if(tab){
+      if(i===n){ tab.style.background='var(--glow)'; tab.style.color='var(--ac)'; tab.style.borderBottom='2px solid var(--ac)'; }
+      else { tab.style.background='transparent'; tab.style.color='var(--t2)'; tab.style.borderBottom='2px solid transparent'; }
+    }
+  });
+}
 
 /* ======================================================
    EMAIL TABS

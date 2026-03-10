@@ -546,13 +546,13 @@ body{
     </div>
   </div>
 
-  <!-- TAB 2: Translate -->
-  <div class="ca" id="vcPane2" style="display:none">
+  <!-- TAB 2: Translate — scroll area WITHOUT copy buttons -->
+  <div class="ca" id="vcPane2" style="display:none;padding-bottom:0">
     <div class="sc fxc gap12">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Translate Text</h3>
       <div>
         <div class="fl">Source Text</div>
-        <textarea class="ta" id="transSrc" rows="4" placeholder="Type or paste text to translate…"></textarea>
+        <textarea class="ta" id="transSrc" rows="3" placeholder="Type or paste text to translate…"></textarea>
       </div>
       <div>
         <div class="fl">Translate To</div>
@@ -581,16 +581,16 @@ body{
           <option value="Persian">Persian (فارسی)</option>
         </select>
       </div>
-      <!-- Result shown inline -->
       <div>
         <div class="fl">Translation</div>
-        <div class="rb rba" id="transResult" style="min-height:100px">Translation will appear here…</div>
-      </div>
-      <div class="fx gap8 wrap">
-        <button class="btn bs" style="flex:1;justify-content:center" onclick="clipCopy(document.getElementById('transResult').textContent)">📋 Copy</button>
-        <button class="btn bs" style="flex:1;justify-content:center" onclick="sendToNote(document.getElementById('transResult').textContent)">📝 To Notes</button>
+        <div class="rb rba" id="transResult" style="min-height:80px">Translation will appear here…</div>
       </div>
     </div>
+  </div>
+  <!-- FIXED bottom action bar for translate tab — always visible -->
+  <div id="transActionBar" style="display:none;flex-shrink:0;padding:10px 14px calc(10px + var(--sab));border-top:1px solid var(--border);background:var(--s1);display:flex;gap:8px">
+    <button class="btn bs" style="flex:1;justify-content:center" onclick="clipCopy(document.getElementById('transResult').textContent)">📋 Copy</button>
+    <button class="btn bs" style="flex:1;justify-content:center" onclick="sendToNote(document.getElementById('transResult').textContent)">📝 To Notes</button>
   </div>
 </section>
 <!-- ========== REWRITE ========== -->
@@ -1741,9 +1741,11 @@ function vcTab(n){
       else { tab.style.background='transparent'; tab.style.color='var(--t2)'; tab.style.borderBottom='2px solid transparent'; }
     }
   });
-  // Show Translate button only on translate tab
+  // Show Translate button + action bar only on translate tab
   var tb=document.getElementById('translateBtn');
   if(tb) tb.style.display=(n===2)?'flex':'none';
+  var ab=document.getElementById('transActionBar');
+  if(ab) ab.style.display=(n===2)?'flex':'none';
 }
 
 /* ======================================================

@@ -708,59 +708,92 @@ body{
 
 <!-- ========== EMAIL ========== -->
 <section class="panel" id="panel-email">
-  <div class="ph">
-    <div class="ptit">
+  <!-- Fixed header with tab switcher -->
+  <div class="ph" style="padding-bottom:0;flex-direction:column;align-items:stretch;gap:0">
+    <div class="ptit" style="padding-bottom:10px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       AI Email Writer
     </div>
+    <!-- Tab bar -->
+    <div style="display:flex;gap:0;border-top:1px solid var(--border)">
+      <button id="etab1" onclick="emailTab(1)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:var(--glow);color:var(--ac);border:none;border-bottom:2px solid var(--ac);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">
+        ✉️ Compose
+      </button>
+      <button id="etab2" onclick="emailTab(2)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:transparent;color:var(--t2);border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">
+        📨 Result
+      </button>
+      <button id="etab3" onclick="emailTab(3)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:transparent;color:var(--t2);border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">
+        🔄 Reply / Refine
+      </button>
+    </div>
   </div>
-  <div class="ca">
-    <div class="g2">
-      <div class="sc fxc gap12">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Email Setup</h3>
-        <div><div class="fl">Recipient</div><input class="inp" id="emailTo" placeholder="Client, Manager, Team…"></div>
-        <div><div class="fl">Purpose / Topic</div><textarea class="ta" id="emailPurpose" rows="3" placeholder="What is this email about?"></textarea></div>
-        <div>
-          <div class="fl">Tone</div>
-          <div class="cg" id="emailToneChips">
-            <div class="chip active" data-v="Professional">Professional</div>
-            <div class="chip" data-v="Formal">Formal</div>
-            <div class="chip" data-v="Friendly">Friendly</div>
-            <div class="chip" data-v="Apologetic">Apologetic</div>
-            <div class="chip" data-v="Assertive">Assertive</div>
-            <div class="chip" data-v="Urgent">Urgent</div>
-          </div>
+
+  <!-- TAB 1: Compose -->
+  <div class="ca" id="emailPane1">
+    <div class="sc fxc gap12">
+      <div><div class="fl">Recipient</div><input class="inp" id="emailTo" placeholder="Client, Manager, Team…"></div>
+      <div><div class="fl">Purpose / Topic</div><textarea class="ta" id="emailPurpose" rows="3" placeholder="What is this email about?"></textarea></div>
+      <div>
+        <div class="fl">Tone</div>
+        <div class="cg" id="emailToneChips">
+          <div class="chip active" data-v="Professional">Professional</div>
+          <div class="chip" data-v="Formal">Formal</div>
+          <div class="chip" data-v="Friendly">Friendly</div>
+          <div class="chip" data-v="Apologetic">Apologetic</div>
+          <div class="chip" data-v="Assertive">Assertive</div>
+          <div class="chip" data-v="Urgent">Urgent</div>
         </div>
-        <div><div class="fl">Length</div>
-          <select class="sel" id="emailLen">
-            <option value="brief">Brief (2-3 sentences)</option>
-            <option value="standard" selected>Standard (1-2 paragraphs)</option>
-            <option value="detailed">Detailed (3+ paragraphs)</option>
-          </select>
-        </div>
-        <button class="btn bp" id="genEmailBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
-          Generate Email
-        </button>
-        <div id="emailLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Writing…</div>
       </div>
-      <div class="fxc gap12">
-        <div class="sc" style="flex:1">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Generated Email</h3>
-          <div class="rb rba" id="emailResult" style="min-height:180px">Your email will appear here…</div>
-          <div class="fx gap8 wrap" style="margin-top:9px">
-            <button class="btn bs" onclick="clipCopy(document.getElementById('emailResult').textContent)">Copy</button>
-            <button class="btn bs" onclick="sendToNote(document.getElementById('emailResult').textContent)">To Notes</button>
-          </div>
-        </div>
-        <div class="sc">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>Reply / Refine</h3>
-          <textarea class="ta" id="emailRefine" rows="3" placeholder="Paste an email to reply to or refine…"></textarea>
-          <div class="fx gap8 wrap" style="margin-top:8px">
-            <button class="btn ba2" id="replyBtn">Generate Reply</button>
-            <button class="btn bs" id="refineBtn">Refine</button>
-          </div>
-        </div>
+      <div><div class="fl">Length</div>
+        <select class="sel" id="emailLen">
+          <option value="brief">Brief (2-3 sentences)</option>
+          <option value="standard" selected>Standard (1-2 paragraphs)</option>
+          <option value="detailed">Detailed (3+ paragraphs)</option>
+        </select>
+      </div>
+      <button class="btn bp" id="genEmailBtn" style="width:100%;justify-content:center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        Generate Email
+      </button>
+      <div id="emailLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Writing…</div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Result -->
+  <div class="ca" id="emailPane2" style="display:none">
+    <div class="sc fxc gap10">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Generated Email</h3>
+      <div class="rb rba" id="emailResult" style="min-height:200px">Your email will appear here…</div>
+      <div class="fx gap8 wrap" style="margin-top:4px">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('emailResult').textContent)">📋 Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('emailResult').textContent)">📝 To Notes</button>
+        <button class="btn bp" onclick="emailTab(1)" style="margin-left:auto">✏️ Edit Setup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Reply / Refine -->
+  <div class="ca" id="emailPane3" style="display:none">
+    <div class="sc fxc gap12">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>Reply / Refine</h3>
+      <div><div class="fl">Paste email to reply to or refine</div>
+        <textarea class="ta" id="emailRefine" rows="6" placeholder="Paste the original email here…" style="min-height:140px"></textarea>
+      </div>
+      <div class="fx gap8 wrap">
+        <button class="btn ba2" id="replyBtn" style="flex:1;justify-content:center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>
+          Generate Reply
+        </button>
+        <button class="btn bs" id="refineBtn" style="flex:1;justify-content:center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Refine
+        </button>
+      </div>
+      <div id="refineLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Processing…</div>
+      <div id="refineResult" class="rb rba" style="display:none;min-height:120px"></div>
+      <div id="refineActions" class="fx gap8 wrap" style="display:none">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('refineResult').textContent)">📋 Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('refineResult').textContent)">📝 To Notes</button>
       </div>
     </div>
   </div>
@@ -1649,14 +1682,41 @@ document.getElementById('analyzeMeetBtn').addEventListener('click', function(){
 });
 
 /* ======================================================
+   EMAIL TABS
+====================================================== */
+function emailTab(n){
+  [1,2,3].forEach(function(i){
+    var pane=document.getElementById('emailPane'+i);
+    var tab=document.getElementById('etab'+i);
+    if(pane) pane.style.display=(i===n)?'flex':'none';
+    if(tab){
+      if(i===n){
+        tab.style.background='var(--glow)';
+        tab.style.color='var(--ac)';
+        tab.style.borderBottom='2px solid var(--ac)';
+      } else {
+        tab.style.background='transparent';
+        tab.style.color='var(--t2)';
+        tab.style.borderBottom='2px solid transparent';
+      }
+    }
+  });
+}
+
+/* ======================================================
    EMAIL
 ====================================================== */
-function runEmail(prompt){
+function runEmail(prompt, afterFn){
   ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=true; });
   var ld=document.getElementById('emailLoad'), res=document.getElementById('emailResult');
   ld.style.display='flex'; res.textContent='Writing…';
   callClaude(prompt,'You are an expert business email writer. Write clear, professional emails.',1200,
-    function(r){ res.textContent=r; ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=false; }); ld.style.display='none'; },
+    function(r){
+      res.textContent=r;
+      ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=false; });
+      ld.style.display='none';
+      if(afterFn) afterFn();
+    },
     function(e){ res.textContent='Error: '+e; toast('Failed: '+e,'var(--danger)'); ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=false; }); ld.style.display='none'; }
   );
 }
@@ -1666,17 +1726,17 @@ document.getElementById('genEmailBtn').addEventListener('click', function(){
   if(!p){ toast('Describe the email purpose first','var(--t2)'); return; }
   var lm={brief:'2-3 sentences',standard:'1-2 paragraphs',detailed:'3+ paragraphs'};
   var len=document.getElementById('emailLen').value;
-  runEmail('Write a '+selTone+' email.\n'+(to?'Recipient: '+to+'\n':'')+'Purpose: '+p+'\nLength: '+lm[len]+'\n\nStart with Subject: line. Write only the email.');
+  runEmail('Write a '+selTone+' email.\n'+(to?'Recipient: '+to+'\n':'')+'Purpose: '+p+'\nLength: '+lm[len]+'\n\nStart with Subject: line. Write only the email.', function(){ emailTab(2); });
 });
 document.getElementById('replyBtn').addEventListener('click', function(){
   var o=document.getElementById('emailRefine').value.trim();
   if(!o){ toast('Paste an email to reply to','var(--t2)'); return; }
-  runEmail('Write a '+selTone+' reply to this email:\n\n'+o+'\n\nStart with Subject: line. Write only the reply.');
+  runEmail('Write a '+selTone+' reply to this email:\n\n'+o+'\n\nStart with Subject: line. Write only the reply.', function(){ emailTab(2); });
 });
 document.getElementById('refineBtn').addEventListener('click', function(){
   var o=document.getElementById('emailRefine').value.trim();
   if(!o){ toast('Paste an email to refine','var(--t2)'); return; }
-  runEmail('Refine and improve this email to be more '+selTone.toLowerCase()+' and professional:\n\n'+o);
+  runEmail('Refine and improve this email to be more '+selTone.toLowerCase()+' and professional:\n\n'+o, function(){ emailTab(2); });
 });
 
 /* ======================================================

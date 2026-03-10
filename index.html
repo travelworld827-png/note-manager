@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="theme-color" content="#7c6aff" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#7c6aff">
+<meta name="application-name" content="NoteVerse AI">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NoteVerse">
+<meta name="msapplication-TileColor" content="#7c6aff">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="format-detection" content="telephone=no">
+<!-- PWA Manifest (embedded) -->
+<link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIk5vdGVWZXJzZSBBSSIsCiAgInNob3J0X25hbWUiOiAiTm90ZVZlcnNlIiwKICAiZGVzY3JpcHRpb24iOiAiQUktcG93ZXJlZCBub3RlIHRha2luZyB3aXRoIHZvaWNlLCB0cmFuc2xhdGlvbiwgbWVldGluZyByZWNvcmRlciBhbmQgZW1haWwgd3JpdGVyIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwYTBhMGYiLAogICJ0aGVtZV9jb2xvciI6ICIjN2M2YWZmIiwKICAib3JpZW50YXRpb24iOiAiYW55IiwKICAic2NvcGUiOiAiLiIsCiAgImxhbmciOiAiZW4iLAogICJjYXRlZ29yaWVzIjogWyJwcm9kdWN0aXZpdHkiLCAidXRpbGl0aWVzIl0sCiAgImljb25zIjogWwogICAgeyAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJajRLSUNBOFpHVm1jejRLSUNBZ0lEeHNhVzVsWVhKSGNtRmthV1Z1ZENCcFpEMGlaekVpSUhneFBTSXdKU0lnZVRFOUlqQWxJaUI0TWowaU1UQXdKU0lnZVRJOUlqRXdNQ1VpUGdvZ0lDQWdJQ0E4YzNSdmNDQnZabVp6WlhROUlqQWxJaUJ6ZEhsc1pUMGljM1J2Y0MxamIyeHZjam9qT1dJNFlXWm1JaTgrQ2lBZ0lDQWdJRHh6ZEc5d0lHOW1abk5sZEQwaU1UQXdKU0lnYzNSNWJHVTlJbk4wYjNBdFkyOXNiM0k2SXpWaU5HUmxPQ0l2UGdvZ0lDQWdQQzlzYVc1bFlYSkhjbUZrYVdWdWRENEtJQ0FnSUR4c2FXNWxZWEpIY21Ga2FXVnVkQ0JwWkQwaVp6SWlJSGd4UFNJd0pTSWdlVEU5SWpBbElpQjRNajBpTVRBd0pTSWdlVEk5SWpFd01DVWlQZ29nSUNBZ0lDQThjM1J2Y0NCdlptWnpaWFE5SWpBbElpQnpkSGxzWlQwaWMzUnZjQzFqYjJ4dmNqb2pabVptWm1abU8zTjBiM0F0YjNCaFkybDBlVG93TGprMUlpOCtDaUFnSUNBZ0lEeHpkRzl3SUc5bVpuTmxkRDBpTVRBd0pTSWdjM1I1YkdVOUluTjBiM0F0WTI5c2IzSTZJMlV3WkRobVpqdHpkRzl3TFc5d1lXTnBkSGs2TUM0NUlpOCtDaUFnSUNBOEwyeHBibVZoY2tkeVlXUnBaVzUwUGdvZ0lEd3ZaR1ZtY3o0S0lDQThJUzB0SUVKaFkydG5jbTkxYm1RZ2NtOTFibVJsWkNCeVpXTjBJQzB0UGdvZ0lEeHlaV04wSUhkcFpIUm9QU0kxTVRJaUlHaGxhV2RvZEQwaU5URXlJaUJ5ZUQwaU1URXdJaUJtYVd4c1BTSjFjbXdvSTJjeEtTSXZQZ29nSUR3aExTMGdVM1ZpZEd4bElHbHVibVZ5SUdkc2IzY2dMUzArQ2lBZ1BISmxZM1FnZUQwaU1qQWlJSGs5SWpJd0lpQjNhV1IwYUQwaU5EY3lJaUJvWldsbmFIUTlJalEzTWlJZ2NuZzlJamsySWlCbWFXeHNQU0p1YjI1bElpQnpkSEp2YTJVOUluSm5ZbUVvTWpVMUxESTFOU3d5TlRVc01DNHhNaWtpSUhOMGNtOXJaUzEzYVdSMGFEMGlNaUl2UGdvZ0lEd2hMUzBnVGlCc1pYUjBaWElnTFMwK0NpQWdQSFJsZUhRZ2VEMGlOakFpSUhrOUlqTTBNQ0lnWm05dWRDMW1ZVzFwYkhrOUlrZGxiM0puYVdFc2MyVnlhV1lpSUdadmJuUXRjMmw2WlQwaU1qZ3dJaUJtYjI1MExYZGxhV2RvZEQwaU56QXdJaUJtYVd4c1BTSjFjbXdvSTJjeUtTSWdiR1YwZEdWeUxYTndZV05wYm1jOUlpMHhNQ0krVGxZOEwzUmxlSFErQ2lBZ1BDRXRMU0JCU1NCemNHRnlhMnhsSUdSdmRITWdMUzArQ2lBZ1BHTnBjbU5zWlNCamVEMGlOREF3SWlCamVUMGlPVEFpSUhJOUlqRTBJaUJtYVd4c1BTSnlaMkpoS0RJMU5Td3lOVFVzTWpVMUxEQXVOeWtpTHo0S0lDQThZMmx5WTJ4bElHTjRQU0kwTkRBaUlHTjVQU0kyTUNJZ2NqMGlPQ0lnWm1sc2JEMGljbWRpWVNneU5UVXNNalUxTERJMU5Td3dMalVwSWk4K0NpQWdQR05wY21Oc1pTQmplRDBpTXpnd0lpQmplVDBpTlRVaUlISTlJallpSUdacGJHdzlJbkpuWW1Fb01qVTFMREkxTlN3eU5UVXNNQzQwS1NJdlBnbzhMM04yWno0PSIsICJzaXplcyI6ICJhbnkiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIiB9CiAgXSwKICAic2hvcnRjdXRzIjogWwogICAgeyAibmFtZSI6ICJOZXcgTm90ZSIsICJ1cmwiOiAiLiIsICJkZXNjcmlwdGlvbiI6ICJDcmVhdGUgYSBuZXcgbm90ZSIgfQogIF0KfQ==">
+<!-- Apple Touch Icons (multiple sizes for all iOS devices) -->
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=">
+<link rel="apple-touch-icon" sizes="152x152" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=">
+<link rel="apple-touch-icon" sizes="120x120" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=">
+<link rel="apple-touch-icon" sizes="76x76" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=">
+<link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=">
+<title>NoteVerse AI</title>
+<!-- PWA Meta Tags -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NoteVerse AI">
+<meta name="application-name" content="NoteVerse AI">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="description" content="AI-powered notes, voice recording, translation and writing assistant">
+<!-- Icons (set dynamically by JS canvas) -->
+<link id="pwa-manifest-link" rel="manifest">
+<link id="atIcon180" rel="apple-touch-icon" sizes="180x180">
+<link id="atIcon152" rel="apple-touch-icon" sizes="152x152">
+<link id="atIcon120" rel="apple-touch-icon" sizes="120x120">
+<link id="atIcon76"  rel="apple-touch-icon" sizes="76x76">
+<link id="favIcon"   rel="icon" type="image/png" sizes="32x32">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0a0a0f;--s1:#111118;--s2:#17171f;--s3:#1e1e28;
+  --border:rgba(255,255,255,0.07);
+  --ac:#7c6aff;--ac2:#ff6a9b;
+  --t:#f0f0f5;--t2:#9090a8;--t3:#5a5a72;
+  --danger:#ff4f6a;--ok:#4fffb0;
+  --glow:rgba(124,106,255,0.13);
+  --sat:env(safe-area-inset-top,0px);
+  --sar:env(safe-area-inset-right,0px);
+  --sab:env(safe-area-inset-bottom,0px);
+  --sal:env(safe-area-inset-left,0px);
+}
+
+/* ── BASE ── */
+html{height:100%;height:-webkit-fill-available;background:#0a0a0f}
+body{
+  min-height:100vh;
+  min-height:-webkit-fill-available;
+  font-family:"DM Sans",sans-serif;
+  background:var(--bg);color:var(--t);
+  overflow:hidden;
+  overscroll-behavior:none;
+  -webkit-overflow-scrolling:touch;
+  padding-top:var(--sat);
+  padding-left:var(--sal);
+  padding-right:var(--sar);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--s3);border-radius:4px}
+
+/* ── APP SHELL ── */
+.app{
+  display:flex;
+  width:100%;
+  height:calc(100vh - var(--sat));
+  height:calc(100dvh - var(--sat));
+}
+.main{flex:1;display:flex;overflow:hidden;position:relative}
+
+/* ── SIDEBAR (desktop/tablet vertical, mobile horizontal bottom bar) ── */
+.sb{
+  width:66px;background:var(--s1);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;
+  padding:14px 0 calc(14px + var(--sab));
+  gap:2px;flex-shrink:0;z-index:100
+}
+.logo{font-family:"Syne",sans-serif;font-weight:800;font-size:15px;color:var(--ac);margin-bottom:14px}
+.nb{
+  width:44px;height:44px;border-radius:12px;border:none;
+  background:transparent;color:var(--t3);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;transition:all .18s;-webkit-user-select:none;user-select:none;
+  touch-action:manipulation;
+}
+.nb svg{width:18px;height:18px;flex-shrink:0}
+.nb .lbl{font-size:9px;font-weight:500;display:none}
+.nb:hover{background:var(--s2);color:var(--t)}
+.nb.active{background:var(--glow);color:var(--ac);border:1px solid rgba(124,106,255,.22)}
+.sbb{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:2px}
+.creator-tag{display:flex;flex-direction:column;align-items:center;padding:8px 4px 4px;gap:1px;cursor:default}
+.creator-by{font-size:8px;color:var(--t3);letter-spacing:.5px}
+.creator-name{font-family:"Syne",sans-serif;font-size:7px;font-weight:800;color:var(--t3);letter-spacing:.6px;text-align:center;line-height:1.35;transition:color .2s}
+.creator-tag:hover .creator-name{color:var(--ac)}
+
+/* ── PANELS ── */
+.panel{position:absolute;inset:0;display:none;flex-direction:column;overflow:hidden}
+.panel.active{display:flex}
+.ph{padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
+.ptit{font-family:"Syne",sans-serif;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.ptit svg{width:18px;height:18px;color:var(--ac)}
+.ca{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px;display:flex;flex-direction:column;gap:14px}
+
+/* ── BUTTONS ── */
+.btn{
+  padding:8px 14px;border-radius:9px;border:none;
+  font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;
+  cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  transition:all .18s;white-space:nowrap;
+  touch-action:manipulation;-webkit-user-select:none;user-select:none;
+  min-height:44px;
+}
+.btn svg{width:13px;height:13px;flex-shrink:0}
+.btn:disabled{opacity:.38;cursor:not-allowed}
+.bp{background:var(--ac);color:#fff}.bp:hover:not(:disabled){background:#6a58e8}
+.bs{background:var(--s2);color:var(--t);border:1px solid var(--border)}.bs:hover:not(:disabled){background:var(--s3)}
+.bd{background:rgba(255,79,106,.13);color:var(--danger);border:1px solid rgba(255,79,106,.2)}.bd:hover:not(:disabled){background:rgba(255,79,106,.22)}
+.ba2{background:rgba(255,106,155,.1);color:var(--ac2);border:1px solid rgba(255,106,155,.2)}.ba2:hover:not(:disabled){background:rgba(255,106,155,.2)}
+
+/* ── INPUTS ── */
+.ta{
+  width:100%;background:var(--s2);border:1px solid var(--border);
+  border-radius:10px;padding:11px 13px;color:var(--t);
+  font-family:"DM Sans",sans-serif;font-size:16px;/* 16px prevents iOS zoom */
+  line-height:1.7;resize:none;outline:none;transition:border-color .18s;
+  -webkit-appearance:none;appearance:none;
+  -webkit-overflow-scrolling:touch;
+}
+.ta:focus{border-color:var(--ac)}
+.sel{
+  background:var(--s2);border:1px solid var(--border);border-radius:8px;
+  padding:8px 28px 8px 11px;color:var(--t);
+  font-family:"DM Sans",sans-serif;font-size:16px;/* 16px prevents iOS zoom */
+  outline:none;cursor:pointer;min-height:44px;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239090a8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;
+}
+.sel:focus{border-color:var(--ac)}
+.inp{
+  background:var(--s2);border:1px solid var(--border);border-radius:8px;
+  padding:8px 11px;color:var(--t);
+  font-family:"DM Sans",sans-serif;font-size:16px;/* 16px prevents iOS zoom */
+  outline:none;width:100%;min-height:44px;
+  -webkit-appearance:none;appearance:none;
+}
+.inp:focus{border-color:var(--ac)}
+
+/* ── CARDS ── */
+.sc{background:var(--s1);border:1px solid var(--border);border-radius:13px;padding:16px}
+.sc h3{font-family:"Syne",sans-serif;font-size:12px;font-weight:700;margin-bottom:11px;display:flex;align-items:center;gap:6px;color:var(--t2);text-transform:uppercase;letter-spacing:.5px}
+.sc h3 svg{width:14px;height:14px;color:var(--ac)}
+.fl{font-size:10px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:var(--t3);margin-bottom:6px}
+.rb{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:13px;font-size:14px;line-height:1.7;color:var(--t);white-space:pre-wrap;min-height:60px;-webkit-overflow-scrolling:touch;overflow-y:auto}
+.rba{border-color:rgba(124,106,255,.3);background:rgba(124,106,255,.05)}
+
+/* ── CHIPS ── */
+.cg{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 12px;background:var(--s2);border:1px solid var(--border);border-radius:20px;font-size:12px;cursor:pointer;transition:all .15s;color:var(--t2);touch-action:manipulation;min-height:36px;display:inline-flex;align-items:center}
+.chip:hover,.chip.active{background:var(--glow);border-color:rgba(124,106,255,.3);color:var(--ac)}
+
+/* ── LOADING ── */
+.ait{display:flex;align-items:center;gap:8px;color:var(--t2);font-size:13px;padding:6px 0}
+.dp{display:flex;gap:4px}.dp span{width:5px;height:5px;background:var(--ac);border-radius:50%;animation:dp 1.2s ease-in-out infinite}
+.dp span:nth-child(2){animation-delay:.2s}.dp span:nth-child(3){animation-delay:.4s}
+@keyframes dp{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+
+/* ── WAVEFORM ── */
+.wf{display:flex;align-items:center;justify-content:center;gap:3px;height:34px;padding:0 10px}
+.wb{width:3px;background:var(--ac);border-radius:2px;animation:wv .8s ease-in-out infinite;opacity:.8}
+.wb:nth-child(2n){animation-delay:.1s}.wb:nth-child(3n){animation-delay:.2s}.wb:nth-child(4n){animation-delay:.3s}
+@keyframes wv{0%,100%{height:5px}50%{height:24px}}
+
+/* ── REC INDICATOR ── */
+.ri{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(255,79,106,.13);border-radius:20px;font-size:12px;font-weight:600;color:var(--danger);animation:rp 1s ease-in-out infinite}
+.rd{width:7px;height:7px;background:var(--danger);border-radius:50%}
+@keyframes rp{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── NOTES LAYOUT ── */
+.ns{flex:1;display:flex;overflow:hidden}
+.nlp{width:240px;border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
+.nlh{padding:10px;border-bottom:1px solid var(--border)}
+.nsr{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--t);font-family:"DM Sans",sans-serif;font-size:16px;outline:none;-webkit-appearance:none;appearance:none}.nsr:focus{border-color:var(--ac)}
+.nl{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:5px;display:flex;flex-direction:column;gap:3px}
+.ni{padding:9px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all .14s;touch-action:manipulation}
+.ni:hover{background:var(--s2)}.ni.active{background:var(--glow);border-color:rgba(124,106,255,.2)}
+.nt{font-size:13px;font-weight:500;color:var(--t);margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.np{font-size:11px;color:var(--t3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nd{font-size:10px;color:var(--t3);margin-top:2px}
+.nep{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.ntb{padding:8px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;flex-wrap:wrap;flex-shrink:0}
+.nti{width:100%;background:transparent;border:none;color:var(--t);font-family:"Syne",sans-serif;font-size:20px;font-weight:700;outline:none;padding:16px 20px 5px;-webkit-appearance:none}.nti::placeholder{color:var(--t3)}
+.nbe{flex:1;background:transparent;border:none;color:var(--t);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.8;padding:5px 20px 20px;resize:none;outline:none;-webkit-overflow-scrolling:touch;-webkit-appearance:none}.nbe::placeholder{color:var(--t3)}
+
+/* ── TRANSLATE BAR ── */
+.trb{display:none;padding:8px 16px;border-bottom:1px solid var(--border);background:var(--s2);align-items:center;gap:8px;flex-wrap:wrap;flex-shrink:0}.trb.open{display:flex}
+.trr{display:none;padding:10px 16px;border-bottom:1px solid var(--border);background:rgba(124,106,255,.04);flex-shrink:0}.trr.open{display:block}
+
+/* ── UPLOAD ── */
+.uz{border:2px dashed var(--border);border-radius:11px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.uz:hover,.uz.drag{border-color:var(--ac);background:rgba(124,106,255,.05)}
+.uz input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+
+/* ── MEETING TIMER ── */
+.mti{font-family:"Syne",sans-serif;font-size:38px;font-weight:800;color:var(--t);letter-spacing:-2px;text-align:center;padding:14px 0}
+.te{padding:8px 12px;background:var(--s2);border-radius:8px;border-left:3px solid var(--ac);font-size:13px;line-height:1.6}
+.tts{font-size:10px;color:var(--t3);margin-bottom:2px;font-weight:600;letter-spacing:.4px}
+
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:calc(80px + var(--sab));left:50%;transform:translateX(-50%) translateY(16px);background:var(--s1);border:1px solid var(--border);border-radius:9px;padding:8px 16px;font-size:13px;color:var(--ok);opacity:0;transition:all .25s;pointer-events:none;z-index:9999;white-space:nowrap;max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── MODAL ── */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2000;display:none;align-items:center;justify-content:center;padding:16px}
+.md{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:26px;width:100%;max-width:440px;box-shadow:0 40px 80px rgba(0,0,0,.5);max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.md h2{font-family:"Syne",sans-serif;font-size:20px;font-weight:800;margin-bottom:6px}
+.md p{color:var(--t2);font-size:13px;line-height:1.65;margin-bottom:18px}
+.mi{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:9px;padding:11px 13px;color:var(--t);font-family:"DM Sans",sans-serif;font-size:16px;margin-bottom:13px;outline:none;transition:border-color .18s;-webkit-appearance:none;appearance:none}.mi:focus{border-color:var(--ac)}
+.alert{padding:10px 14px;border-radius:9px;font-size:13px;margin-bottom:13px;display:none}
+.alert.err{background:rgba(255,79,106,.12);border:1px solid rgba(255,79,106,.25);color:var(--danger)}
+.alert.ok{background:rgba(74,255,176,.1);border:1px solid rgba(74,255,176,.2);color:var(--ok)}
+
+/* ── PWA INSTALL BANNER ── */
+#installBanner{display:none;position:fixed;top:0;left:0;right:0;z-index:3000;background:linear-gradient(135deg,#7c6aff,#ff6a9b);padding:calc(10px + var(--sat)) 16px 10px;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+#installBanner.show{display:flex}
+#installBanner .ib-left{display:flex;align-items:center;gap:10px}
+#installBanner .ib-icon{width:36px;height:36px;border-radius:8px;flex-shrink:0}
+#installBanner .ib-text{font-family:"Syne",sans-serif;font-size:13px;font-weight:700;color:#fff}
+#installBanner .ib-sub{font-size:11px;color:rgba(255,255,255,.8);margin-top:1px}
+#installBanner .ib-btn{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 14px;border-radius:20px;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;min-height:36px;touch-action:manipulation}
+#installBanner .ib-close{background:transparent;border:none;color:rgba(255,255,255,.7);font-size:18px;cursor:pointer;padding:4px 8px;line-height:1;touch-action:manipulation}
+#iosHint{display:none;position:fixed;bottom:calc(80px + var(--sab));left:50%;transform:translateX(-50%);z-index:3000;background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:14px 18px;width:calc(100vw - 40px);max-width:340px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+#iosHint.show{display:block}
+#iosHint p{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:10px}
+#iosHint .ih-close{background:var(--s2);border:1px solid var(--border);color:var(--t);padding:6px 16px;border-radius:8px;font-size:13px;cursor:pointer;min-height:44px;touch-action:manipulation}
+
+/* ── FLEX UTILS ── */
+.fx{display:flex}.fxc{display:flex;flex-direction:column}.gap6{gap:6px}.gap8{gap:8px}.gap10{gap:10px}.gap12{gap:12px}.aic{align-items:center}.wrap{flex-wrap:wrap}.ml-auto{margin-left:auto}
+
+/* ── TABLET (iPad) ── */
+@media(max-width:760px){
+  .sb{width:54px}
+  .nb{width:38px;height:38px}
+  .nlp{width:200px}
+  .ph{padding:12px 14px}
+  .ca{padding:13px}
+  .mti{font-size:28px}
+}
+
+/* ── MOBILE (iPhone / Android) ── */
+@media(max-width:560px){
+  /* Bottom nav bar */
+  .sb{
+    position:fixed;bottom:0;left:0;right:0;
+    width:100%;
+    height:calc(58px + var(--sab));
+    flex-direction:row;justify-content:space-around;
+    padding:6px 0 calc(6px + var(--sab));
+    border-right:none;border-top:1px solid var(--border);
+    z-index:200;
+  }
+  .logo{display:none}
+  .sbb{flex-direction:row;margin-top:0}
+  .creator-tag{display:none}
+  .app{flex-direction:column}
+  .main{padding-bottom:calc(58px + var(--sab))}
+  .ns{flex-direction:column}
+  .nlp{width:100%;height:150px;border-right:none;border-bottom:1px solid var(--border)}
+  .nb .lbl{display:block}
+  .nb svg{width:16px;height:16px}
+  .ntb{gap:4px;padding:6px 10px}
+  .g2{grid-template-columns:1fr}
+  .nti{font-size:18px;padding:12px 14px 4px}
+  .nbe{font-size:16px;padding:4px 14px 80px}
+  .ph{padding:10px 12px}
+  .mti{font-size:24px}
+  .toast{bottom:calc(68px + var(--sab))}
+}
+
+/* ── LANDSCAPE PHONE ── */
+@media(max-width:760px) and (orientation:landscape){
+  .nlp{width:180px;height:auto}
+  .ns{flex-direction:row}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- PWA Install Banner (Android / Desktop Chrome) -->
+<div id="installBanner">
+  <div class="ib-left">
+    <canvas id="ib-canvas" class="ib-icon" width="36" height="36"></canvas>
+    <div>
+      <div class="ib-text">NoteVerse AI</div>
+      <div class="ib-sub">Add to Home Screen for the best experience</div>
+    </div>
+  </div>
+  <button class="ib-btn" id="installBtn">Install App</button>
+  <button class="ib-close" id="installClose">✕</button>
+</div>
+
+<!-- iOS Install Hint -->
+<div id="iosHint">
+  <p>Install NoteVerse AI:<br>Tap <strong style="color:var(--ac)">Share ↑</strong> then <strong style="color:var(--ac)">"Add to Home Screen"</strong></p>
+  <button class="ih-close" id="iosHintClose">Got it</button>
+</div>
+
+<nav class="sb">
+  <div class="logo">NV</div>
+  <button class="nb active" data-panel="notes" title="Notes">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    <span class="lbl">Notes</span>
+  </button>
+  <button class="nb" data-panel="voice" title="Voice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    <span class="lbl">Voice</span>
+  </button>
+  <button class="nb" data-panel="rewrite" title="Rewrite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    <span class="lbl">Rewrite</span>
+  </button>
+  <button class="nb" data-panel="meeting" title="Meeting">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+    <span class="lbl">Meeting</span>
+  </button>
+  <button class="nb" data-panel="email" title="Email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span class="lbl">Email</span>
+  </button>
+  <button class="nb" data-panel="analyze" title="Analyze">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span class="lbl">Analyze</span>
+  </button>
+  <div class="sbb">
+    <button class="nb" id="apiBtnSb" title="API Key">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span class="lbl">Key</span>
+    </button>
+    <div class="creator-tag" title="Created by Harish Churathil">
+      <span class="creator-by">by</span>
+      <span class="creator-name">HARISH<br>CHURATHIL</span>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ========== NOTES ========== -->
+<section class="panel active" id="panel-notes">
+  <div class="ph">
+    <div class="ptit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Notes
+    </div>
+    <button class="btn bp" id="newNoteBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New Note
+    </button>
+  </div>
+  <div class="ns">
+    <div class="nlp">
+      <div class="nlh"><input class="nsr" id="notesSearch" placeholder="Search notes…"></div>
+      <div class="nl" id="notesList"></div>
+    </div>
+    <div class="nep">
+      <!-- toolbar -->
+      <div class="ntb">
+        <select class="sel" id="dictLang" style="font-size:12px;padding:6px 9px" title="Dictation language">
+          <option value="en-US">🇺🇸 English (US)</option>
+          <option value="en-GB">🇬🇧 English (UK)</option>
+          <option value="ml-IN">🇮🇳 Malayalam</option>
+          <option value="hi-IN">🇮🇳 Hindi</option>
+          <option value="ar-SA">🇸🇦 Arabic</option>
+          <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
+          <option value="fr-FR">🇫🇷 French</option>
+          <option value="de-DE">🇩🇪 German</option>
+          <option value="es-ES">🇪🇸 Spanish</option>
+          <option value="zh-CN">🇨🇳 Chinese</option>
+          <option value="ja-JP">🇯🇵 Japanese</option>
+          <option value="ko-KR">🇰🇷 Korean</option>
+          <option value="ru-RU">🇷🇺 Russian</option>
+          <option value="tr-TR">🇹🇷 Turkish</option>
+          <option value="ur-PK">🇵🇰 Urdu</option>
+        </select>
+        <button class="btn bs" id="dictBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+          Dictate
+        </button>
+        <button class="btn bs" id="aiNoteBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          AI Enhance
+        </button>
+        <button class="btn bs" id="copyNoteBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+        <button class="btn bs" id="trToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Translate
+        </button>
+        <button class="btn bd" id="deleteNoteBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          Delete
+        </button>
+        <span id="savedBadge" style="font-size:11px;color:var(--ok);margin-left:auto;opacity:0;transition:opacity .3s">✓ Saved</span>
+      </div>
+      <!-- translate bar -->
+      <div class="trb" id="trBar">
+        <span style="font-size:12px;font-weight:600;color:var(--t2)">Translate to:</span>
+        <select class="sel" id="trLang" style="font-size:12px;padding:6px 10px">
+          <option value="British English">🇬🇧 British English</option>
+          <option value="American English">🇺🇸 American English (US)</option>
+          <option value="Malayalam">Malayalam (മലയാളം)</option>
+          <option value="Hindi">Hindi (हिन्दी)</option>
+          <option value="Arabic">Arabic (العربية)</option>
+          <option value="French">French</option>
+          <option value="Spanish">Spanish</option>
+          <option value="German">German</option>
+          <option value="Chinese Simplified">Chinese (Simplified)</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Korean">Korean</option>
+          <option value="Urdu">Urdu</option>
+          <option value="Portuguese">Portuguese</option>
+          <option value="Italian">Italian</option>
+          <option value="Russian">Russian</option>
+          <option value="Turkish">Turkish</option>
+          <option value="Indonesian">Indonesian</option>
+          <option value="Persian">Persian</option>
+          <option value="Hebrew">Hebrew</option>
+        </select>
+        <button class="btn bp" id="doTr" style="padding:6px 12px;font-size:12px">Go</button>
+        <div id="trLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Translating…</div>
+        <button class="btn bs" id="closeTr" style="padding:6px 9px;font-size:12px;margin-left:auto">✕</button>
+      </div>
+      <!-- translate result -->
+      <div class="trr" id="trRes">
+        <div class="fx aic" style="justify-content:space-between;margin-bottom:7px">
+          <span class="fl" style="margin:0" id="trLabel">Translation</span>
+          <div class="fx gap8">
+            <button class="btn bs" id="copyTr" style="padding:4px 10px;font-size:12px">Copy</button>
+            <button class="btn bs" id="appendTr" style="padding:4px 10px;font-size:12px">Append to Note</button>
+          </div>
+        </div>
+        <div id="trText" style="font-size:14px;line-height:1.7;white-space:pre-wrap;max-height:160px;overflow-y:auto;color:var(--t)"></div>
+      </div>
+      <input class="nti" id="noteTitleInput" placeholder="Note title…">
+      <textarea class="nbe" id="noteBodyEditor" placeholder="Start writing… or pick a language above and click Dictate"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VOICE ========== -->
+<section class="panel" id="panel-voice">
+  <div class="ph">
+    <div class="ptit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+      Voice Recording &amp; Translation
+    </div>
+  </div>
+  <div class="ca">
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>Speech to Text</h3>
+      <div style="margin-bottom:11px">
+        <div class="fl">Recording Language</div>
+        <select class="sel" id="voiceLang">
+          <option value="en-US">🇺🇸 English (US)</option>
+          <option value="en-GB">🇬🇧 English (UK / British)</option>
+          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം)</option>
+          <option value="hi-IN">🇮🇳 Hindi (हिन्दी)</option>
+          <option value="ar-SA">🇸🇦 Arabic</option>
+          <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
+          <option value="fr-FR">🇫🇷 French</option>
+          <option value="de-DE">🇩🇪 German</option>
+          <option value="es-ES">🇪🇸 Spanish</option>
+          <option value="zh-CN">🇨🇳 Chinese (Simplified)</option>
+          <option value="ja-JP">🇯🇵 Japanese</option>
+          <option value="ko-KR">🇰🇷 Korean</option>
+          <option value="ru-RU">🇷🇺 Russian</option>
+          <option value="tr-TR">🇹🇷 Turkish</option>
+          <option value="ur-PK">🇵🇰 Urdu</option>
+        </select>
+      </div>
+      <div class="fx gap8 aic wrap" style="margin-bottom:11px">
+        <button class="btn bp" id="voiceStartBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+          Start Recording
+        </button>
+        <button class="btn bd" id="voiceStopBtn" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          Stop
+        </button>
+        <div id="voiceRecInd" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
+      </div>
+      <div id="voiceWfDiv" style="display:none"><div class="wf" id="voiceWfBars"></div></div>
+      <div class="fl">Transcript</div>
+      <textarea class="ta" id="voiceTranscript" rows="5" placeholder="Your speech will appear here…"></textarea>
+      <div class="fx gap8 wrap" style="margin-top:8px">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('voiceTranscript').value)">Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('voiceTranscript').value)">Send to Notes</button>
+      </div>
+    </div>
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Translate Text</h3>
+      <div class="g2">
+        <div><div class="fl">Source Text</div><textarea class="ta" id="transSrc" rows="6" placeholder="Type or paste text to translate…"></textarea></div>
+        <div><div class="fl">Translation</div><div class="rb rba" id="transResult" style="min-height:120px">Translation will appear here…</div></div>
+      </div>
+      <div class="fx gap8 aic wrap" style="margin-top:10px">
+        <select class="sel" id="transLang">
+          <option value="British English">🇬🇧 British English</option>
+          <option value="American English">🇺🇸 American English (US)</option>
+          <option value="Arabic">Arabic (العربية)</option>
+          <option value="Malayalam">Malayalam (മലയാളം)</option>
+          <option value="Hindi">Hindi (हिन्दी)</option>
+          <option value="French">French (Français)</option>
+          <option value="Spanish">Spanish (Español)</option>
+          <option value="German">German (Deutsch)</option>
+          <option value="Chinese Simplified">Chinese Simplified (简体中文)</option>
+          <option value="Chinese Traditional">Chinese Traditional (繁體中文)</option>
+          <option value="Japanese">Japanese (日本語)</option>
+          <option value="Korean">Korean (한국어)</option>
+          <option value="Urdu">Urdu (اردو)</option>
+          <option value="Portuguese">Portuguese (Português)</option>
+          <option value="Italian">Italian</option>
+          <option value="Russian">Russian (Русский)</option>
+          <option value="Turkish">Turkish (Türkçe)</option>
+          <option value="Dutch">Dutch</option>
+          <option value="Indonesian">Indonesian</option>
+          <option value="Greek">Greek (Ελληνικά)</option>
+          <option value="Hebrew">Hebrew (עברית)</option>
+          <option value="Persian">Persian (فارسی)</option>
+        </select>
+        <button class="btn bp" id="translateBtn">Translate</button>
+        <div id="transLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Translating…</div>
+      </div>
+      <div class="fx gap8 wrap" style="margin-top:8px">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('transResult').textContent)">Copy Translation</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('transResult').textContent)">Send to Notes</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REWRITE ========== -->
+<section class="panel" id="panel-rewrite">
+  <div class="ph">
+    <div class="ptit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      AI Text Rewriter
+    </div>
+  </div>
+  <div class="ca">
+    <div class="sc"><div class="fl">Original Text</div><textarea class="ta" id="rewriteInput" rows="6" placeholder="Paste or type text to rewrite…"></textarea></div>
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Writing Style</h3>
+      <div class="cg" id="styleChips">
+        <div class="chip active" data-v="Professional">Professional</div>
+        <div class="chip" data-v="Casual and Friendly">Casual</div>
+        <div class="chip" data-v="Formal Academic">Academic</div>
+        <div class="chip" data-v="Persuasive">Persuasive</div>
+        <div class="chip" data-v="Concise and Brief">Concise</div>
+        <div class="chip" data-v="Creative and Engaging">Creative</div>
+        <div class="chip" data-v="Simplified easy to read">Simplified</div>
+        <div class="chip" data-v="Technical and Precise">Technical</div>
+        <div class="chip" data-v="Storytelling Narrative">Storytelling</div>
+        <div class="chip" data-v="Executive Summary">Executive</div>
+      </div>
+    </div>
+    <div class="fx gap8 aic">
+      <button class="btn bp" id="rewriteBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Rewrite Text
+      </button>
+      <div id="rewriteLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Rewriting…</div>
+    </div>
+    <div id="rewriteSec" style="display:none">
+      <div class="fl">Rewritten Text</div>
+      <div class="rb rba" id="rewriteResult"></div>
+      <div class="fx gap8 wrap" style="margin-top:9px">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('rewriteResult').textContent)">Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('rewriteResult').textContent)">Send to Notes</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MEETING ========== -->
+<section class="panel" id="panel-meeting">
+  <div class="ph">
+    <div class="ptit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      Meeting Recorder
+    </div>
+    <div id="meetBadge" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
+  </div>
+  <div class="ca">
+    <div class="sc" style="text-align:center">
+      <div class="mti" id="meetTimer">00:00:00</div>
+      <div id="meetWfDiv" style="display:none"><div class="wf" id="meetWfBars"></div></div>
+      <div style="text-align:left;margin-bottom:11px">
+        <div class="fl">Meeting Language</div>
+        <select class="sel" id="meetLang">
+          <option value="en-US">🇺🇸 English (US)</option>
+          <option value="en-GB">🇬🇧 English (UK)</option>
+          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം)</option>
+          <option value="hi-IN">🇮🇳 Hindi</option>
+          <option value="ar-SA">🇸🇦 Arabic</option>
+          <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
+          <option value="fr-FR">🇫🇷 French</option>
+          <option value="de-DE">🇩🇪 German</option>
+          <option value="es-ES">🇪🇸 Spanish</option>
+          <option value="zh-CN">🇨🇳 Chinese</option>
+          <option value="ja-JP">🇯🇵 Japanese</option>
+          <option value="ko-KR">🇰🇷 Korean</option>
+          <option value="ru-RU">🇷🇺 Russian</option>
+          <option value="tr-TR">🇹🇷 Turkish</option>
+          <option value="ur-PK">🇵🇰 Urdu</option>
+        </select>
+      </div>
+      <div class="fx gap8 aic wrap" style="justify-content:center">
+        <button class="btn bp" id="meetStartBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+          Start Recording
+        </button>
+        <button class="btn bd" id="meetStopBtn" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          Stop
+        </button>
+        <button class="btn bs" id="meetMarkBtn" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Mark
+        </button>
+      </div>
+    </div>
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Live Transcript</h3>
+      <div id="meetTransList" style="display:flex;flex-direction:column;gap:6px;max-height:180px;overflow-y:auto">
+        <div style="color:var(--t3);font-size:13px">Start recording — speech appears here…</div>
+      </div>
+    </div>
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Agenda / Notes</h3>
+      <textarea class="ta" id="meetNotes" rows="3" placeholder="Add agenda items or manual notes…"></textarea>
+    </div>
+    <div class="fx gap8 aic wrap">
+      <button class="btn bp" id="analyzeMeetBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        AI Analyze Meeting
+      </button>
+      <div id="meetLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Analyzing…</div>
+    </div>
+    <div id="meetSumSec" style="display:none">
+      <div class="fl">Meeting Analysis</div>
+      <div class="rb rba" id="meetSummary"></div>
+      <div class="fx gap8 wrap" style="margin-top:9px">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('meetSummary').textContent)">Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('meetSummary').textContent)">Send to Notes</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EMAIL ========== -->
+<section class="panel" id="panel-email">
+  <div class="ph">
+    <div class="ptit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      AI Email Writer
+    </div>
+  </div>
+  <div class="ca">
+    <div class="g2">
+      <div class="sc fxc gap12">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Email Setup</h3>
+        <div><div class="fl">Recipient</div><input class="inp" id="emailTo" placeholder="Client, Manager, Team…"></div>
+        <div><div class="fl">Purpose / Topic</div><textarea class="ta" id="emailPurpose" rows="3" placeholder="What is this email about?"></textarea></div>
+        <div>
+          <div class="fl">Tone</div>
+          <div class="cg" id="emailToneChips">
+            <div class="chip active" data-v="Professional">Professional</div>
+            <div class="chip" data-v="Formal">Formal</div>
+            <div class="chip" data-v="Friendly">Friendly</div>
+            <div class="chip" data-v="Apologetic">Apologetic</div>
+            <div class="chip" data-v="Assertive">Assertive</div>
+            <div class="chip" data-v="Urgent">Urgent</div>
+          </div>
+        </div>
+        <div><div class="fl">Length</div>
+          <select class="sel" id="emailLen">
+            <option value="brief">Brief (2-3 sentences)</option>
+            <option value="standard" selected>Standard (1-2 paragraphs)</option>
+            <option value="detailed">Detailed (3+ paragraphs)</option>
+          </select>
+        </div>
+        <button class="btn bp" id="genEmailBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          Generate Email
+        </button>
+        <div id="emailLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Writing…</div>
+      </div>
+      <div class="fxc gap12">
+        <div class="sc" style="flex:1">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Generated Email</h3>
+          <div class="rb rba" id="emailResult" style="min-height:180px">Your email will appear here…</div>
+          <div class="fx gap8 wrap" style="margin-top:9px">
+            <button class="btn bs" onclick="clipCopy(document.getElementById('emailResult').textContent)">Copy</button>
+            <button class="btn bs" onclick="sendToNote(document.getElementById('emailResult').textContent)">To Notes</button>
+          </div>
+        </div>
+        <div class="sc">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>Reply / Refine</h3>
+          <textarea class="ta" id="emailRefine" rows="3" placeholder="Paste an email to reply to or refine…"></textarea>
+          <div class="fx gap8 wrap" style="margin-top:8px">
+            <button class="btn ba2" id="replyBtn">Generate Reply</button>
+            <button class="btn bs" id="refineBtn">Refine</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ANALYZE ========== -->
+<section class="panel" id="panel-analyze">
+  <div class="ph">
+    <div class="ptit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      File &amp; Content Analyzer
+    </div>
+  </div>
+  <div class="ca">
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Upload Files</h3>
+      <div class="uz" id="uploadZone">
+        <input type="file" id="fileInput" accept=".txt,.pdf,.png,.jpg,.jpeg,.gif,.webp,.xlsx,.xls,.csv" multiple>
+        <svg style="width:36px;height:36px;color:var(--t3);margin:0 auto 9px;display:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <div style="font-size:14px;color:var(--t2)">Drop files here or click to browse</div>
+        <div style="font-size:12px;color:var(--t3);margin-top:5px">Images · Text · PDF · Excel / CSV</div>
+      </div>
+      <div id="fileArea" style="display:none;margin-top:9px">
+        <div class="fl">Uploaded Files</div>
+        <div id="fileChips" class="cg"></div>
+      </div>
+    </div>
+    <div class="sc">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Analysis Type</h3>
+      <div class="cg" id="analysisChips">
+        <div class="chip active" data-v="Summarize and extract key points">Summary</div>
+        <div class="chip" data-v="Extract all action items and to-dos">Action Items</div>
+        <div class="chip" data-v="Identify key data and statistics">Data Extract</div>
+        <div class="chip" data-v="Sentiment and tone analysis">Sentiment</div>
+        <div class="chip" data-v="Answer questions about the content">Q&amp;A Mode</div>
+        <div class="chip" data-v="Compare and contrast the uploaded files">Compare</div>
+      </div>
+      <div style="margin-top:10px"><div class="fl">Custom Question (optional)</div>
+        <input class="inp" id="analyzeQ" placeholder="e.g. What are the key risks?">
+      </div>
+    </div>
+    <div class="fx gap8 aic wrap">
+      <button class="btn bp" id="analyzeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Analyze with AI
+      </button>
+      <div id="analyzeLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Analyzing…</div>
+    </div>
+    <div id="analyzeSec" style="display:none">
+      <div class="fl">Analysis Result</div>
+      <div class="rb rba" id="analyzeResult"></div>
+      <div class="fx gap8 wrap" style="margin-top:9px">
+        <button class="btn bs" onclick="clipCopy(document.getElementById('analyzeResult').textContent)">Copy</button>
+        <button class="btn bs" onclick="sendToNote(document.getElementById('analyzeResult').textContent)">Send to Notes</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- API MODAL -->
+<div class="mo" id="apiModal">
+  <div class="md">
+    <h2>🔑 API Key Setup</h2>
+    <p>Enter your Anthropic API key to enable AI features.<br>
+    Your key is stored only in this browser's localStorage.<br><br>
+    <strong style="color:var(--ac)">⚠ Important:</strong> Open this file via a local web server — not by double-clicking (file://). Use VS Code Live Server, or run:<br>
+    <code style="background:var(--s2);padding:2px 7px;border-radius:4px;font-size:12px">python -m http.server 8080</code><br>
+    then open <code style="background:var(--s2);padding:2px 7px;border-radius:4px;font-size:12px">http://localhost:8080</code></p>
+    <div class="alert" id="apiAlert"></div>
+    <input class="mi" type="password" id="apiKeyInput" placeholder="sk-ant-api03-…" autocomplete="off" spellcheck="false">
+    <div class="fx gap8">
+      <button class="btn bp" id="saveApiBtn" style="flex:1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        Save &amp; Verify Key
+      </button>
+      <button class="btn bs" id="skipApiBtn">Skip</button>
+    </div>
+    <p style="margin-top:12px;font-size:12px;color:var(--t3)">Get your key at console.anthropic.com → API Keys</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* ── PWA: Generate icon + inject manifest ── */
+(function(){
+  function makeIcon(sz){
+    var c=document.createElement('canvas'); c.width=c.height=sz;
+    var x=c.getContext('2d');
+    // Background
+    var bg=x.createLinearGradient(0,0,sz,sz);
+    bg.addColorStop(0,'#1c1535'); bg.addColorStop(1,'#0a0a0f');
+    var r=sz*0.2;
+    x.beginPath();
+    x.moveTo(r,0); x.lineTo(sz-r,0); x.quadraticCurveTo(sz,0,sz,r);
+    x.lineTo(sz,sz-r); x.quadraticCurveTo(sz,sz,sz-r,sz);
+    x.lineTo(r,sz); x.quadraticCurveTo(0,sz,0,sz-r);
+    x.lineTo(0,r); x.quadraticCurveTo(0,0,r,0);
+    x.closePath(); x.fillStyle=bg; x.fill();
+    // Glow
+    var gl=x.createRadialGradient(sz*.5,sz*.42,0,sz*.5,sz*.42,sz*.4);
+    gl.addColorStop(0,'rgba(124,106,255,0.35)'); gl.addColorStop(1,'rgba(124,106,255,0)');
+    x.beginPath(); x.arc(sz*.5,sz*.42,sz*.4,0,Math.PI*2);
+    x.fillStyle=gl; x.fill();
+    // "NV" text
+    var fs=Math.round(sz*0.38);
+    x.font='800 '+fs+'px Syne,Arial Black,sans-serif';
+    x.textAlign='center'; x.textBaseline='middle';
+    var tg=x.createLinearGradient(sz*.15,sz*.2,sz*.85,sz*.8);
+    tg.addColorStop(0,'#b8a8ff'); tg.addColorStop(0.5,'#7c6aff'); tg.addColorStop(1,'#ff6a9b');
+    x.fillStyle=tg; x.fillText('NV',sz*.5,sz*.44);
+    // "AI" tag
+    var af=Math.round(sz*0.14);
+    x.font='600 '+af+'px DM Sans,Arial,sans-serif';
+    x.fillStyle='rgba(160,148,255,0.85)'; x.fillText('AI',sz*.5,sz*.74);
+    return c.toDataURL('image/png');
+  }
+
+  var icons={};
+  [192,512,180,152,120,76,32].forEach(function(s){ icons[s]=makeIcon(s); });
+
+  // Apply to link elements
+  var map={'atIcon180':180,'atIcon152':152,'atIcon120':120,'atIcon76':76,'favIcon':32};
+  Object.keys(map).forEach(function(id){ var el=document.getElementById(id); if(el) el.href=icons[map[id]]; });
+
+  // Set favicon directly too
+  var fi=document.querySelector('link[rel="shortcut icon"]')||document.createElement('link');
+  fi.rel='shortcut icon'; fi.href=icons[32]; document.head.appendChild(fi);
+
+  // Inject PWA manifest
+  var manifest={
+    name:'NoteVerse AI',short_name:'NoteVerse',
+    description:'AI notes, voice recording, translation & smart writing',
+    start_url:'.',display:'standalone',orientation:'any',
+    background_color:'#0a0a0f',theme_color:'#0a0a0f',
+    icons:[
+      {src:icons[192],sizes:'192x192',type:'image/png',purpose:'any maskable'},
+      {src:icons[512],sizes:'512x512',type:'image/png',purpose:'any maskable'}
+    ],
+    screenshots:[],
+    categories:['productivity','utilities'],
+    shortcuts:[
+      {name:'New Note',url:'.#notes',icons:[{src:icons[96]||icons[192],sizes:'96x96'}]},
+      {name:'Voice Record',url:'.#voice',icons:[{src:icons[96]||icons[192],sizes:'96x96'}]}
+    ]
+  };
+  try{
+    var mb=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+    var mu=URL.createObjectURL(mb);
+    var ml=document.getElementById('pwa-manifest-link'); if(ml) ml.href=mu;
+  }catch(e){}
+
+  // Update install banner icon if present
+  var bi=document.querySelector('#pwaPrompt img');
+  if(bi) bi.src=icons[192];
+  var hi=document.querySelector('#iosHint img');
+  if(hi) hi.src=icons[180];
+})();
+
+/* ======================================================
+   CORE STATE  +  INIT
+====================================================== */
+var API_KEY = '';
+var notes   = [];
+var curId   = null;
+var stimer  = null;
+var selStyle    = 'Professional';
+var selTone     = 'Professional';
+var selAnalysis = 'Summarize and extract key points';
+var upFiles = [];
+var upData  = [];
+var mFull = '', mEntries = [], mSecs = 0, mInt = null, mRec = null;
+
+// Read persisted API key immediately — runs before DOMContentLoaded
+API_KEY = (localStorage.getItem('nv_key') || '').trim();
+
+// Read persisted notes immediately
+(function(){
+  var ns = localStorage.getItem('nv_notes');
+  try { notes = ns ? JSON.parse(ns) : []; } catch(e){ notes = []; }
+})();
+
+// Init — runs after DOM is ready
+// Script is at bottom of body so DOM is already built; use readyState guard
+function appInit(){
+  // Show API key modal ONLY when no key is stored
+  if (!API_KEY) showApiModal();
+  renderList();
+  if (notes.length) loadNote(notes[0].id); else newNote();
+  buildWf('voiceWfBars', 20);
+  buildWf('meetWfBars', 24);
+  initChips('styleChips',     function(v){ selStyle = v; });
+  initChips('emailToneChips', function(v){ selTone = v; });
+  initChips('analysisChips',  function(v){ selAnalysis = v; });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', appInit);
+} else {
+  appInit(); // DOM already ready (script is at end of body)
+}
+
+/* ======================================================
+   NAV
+====================================================== */
+document.querySelectorAll('.nb[data-panel]').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.nb[data-panel]').forEach(function(x){ x.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(x){ x.classList.remove('active'); });
+    b.classList.add('active');
+    document.getElementById('panel-'+b.dataset.panel).classList.add('active');
+  });
+});
+
+/* ======================================================
+   API MODAL
+====================================================== */
+function showApiModal(){
+  document.getElementById('apiModal').style.display = 'flex';
+  document.getElementById('apiAlert').style.display = 'none';
+  if (API_KEY) document.getElementById('apiKeyInput').value = API_KEY;
+}
+function setAlert(msg, type){
+  var el = document.getElementById('apiAlert');
+  el.textContent = msg;
+  el.className = 'alert ' + type;
+  el.style.display = 'block';
+}
+
+document.getElementById('apiBtnSb').addEventListener('click', showApiModal);
+
+document.getElementById('saveApiBtn').addEventListener('click', function(){
+  var raw = document.getElementById('apiKeyInput').value;
+  var k = raw.trim();
+
+  if (!k){ setAlert('Please enter your API key.', 'err'); return; }
+  if (!k.startsWith('sk-ant-')){ setAlert('Key must start with sk-ant-  — check your key.', 'err'); return; }
+
+  // SAVE IMMEDIATELY — don't wait for network verification
+  API_KEY = k;
+  localStorage.setItem('nv_key', k);
+  document.getElementById('apiModal').style.display = 'none';
+  toast('API key saved ✓');
+});
+
+document.getElementById('skipApiBtn').addEventListener('click', function(){
+  document.getElementById('apiModal').style.display = 'none';
+});
+
+/* ======================================================
+   TOAST
+====================================================== */
+var tTimer;
+function toast(msg, color){
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.style.color = color || 'var(--ok)';
+  el.classList.add('show');
+  clearTimeout(tTimer);
+  tTimer = setTimeout(function(){ el.classList.remove('show'); }, 3000);
+}
+
+/* ======================================================
+   CLIPBOARD
+====================================================== */
+function clipCopy(text){
+  if (!text || !text.trim()){ toast('Nothing to copy', 'var(--t2)'); return; }
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px;';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); toast('Copied! 📋'); }
+    catch(e){ toast('Long-press to copy text', 'var(--t2)'); }
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ toast('Copied! 📋'); }).catch(fallback);
+  } else { fallback(); }
+}
+
+/* ======================================================
+   CLAUDE API  — THE CRITICAL FUNCTION
+   Uses XHR instead of fetch to avoid issues in some browsers
+====================================================== */
+function callClaude(prompt, system, maxTok, onSuccess, onError){
+  var cleanKey = API_KEY.trim();
+  if (!cleanKey){ showApiModal(); onError('No API key — click the 🔑 icon to add it'); return; }
+  
+  maxTok = maxTok || 1800;
+  var body = {
+    model: 'claude-sonnet-4-6',
+    max_tokens: maxTok,
+    messages: [{role:'user', content: prompt}]
+  };
+  if (system) body.system = system;
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://api.anthropic.com/v1/messages', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('x-api-key', cleanKey);
+  xhr.setRequestHeader('anthropic-version', '2023-06-01');
+  xhr.setRequestHeader('anthropic-dangerous-direct-browser-access', 'true');
+  
+  xhr.onload = function(){
+    if (xhr.status >= 200 && xhr.status < 300){
+      try {
+        var d = JSON.parse(xhr.responseText);
+        var text = d.content.filter(function(c){ return c.type==='text'; }).map(function(c){ return c.text; }).join('');
+        onSuccess(text);
+      } catch(e){ onError('Parse error: ' + e.message); }
+    } else {
+      var msg = 'API error ' + xhr.status;
+      try { var j=JSON.parse(xhr.responseText); if(j.error&&j.error.message) msg=j.error.message; } catch(e){}
+      if (xhr.status===401) msg = 'Invalid API key. Click 🔑 to re-enter your key.';
+      onError(msg);
+    }
+  };
+  xhr.onerror = function(){
+    onError('Network error — make sure you opened via http://localhost (not file://)');
+  };
+  xhr.send(JSON.stringify(body));
+}
+
+function callClaudeImg(prompt, b64, mime, onSuccess, onError){
+  var cleanKey = API_KEY.trim();
+  if (!cleanKey){ showApiModal(); onError('No API key'); return; }
+  
+  var body = {
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1800,
+    messages:[{role:'user',content:[
+      {type:'image',source:{type:'base64',media_type:mime,data:b64}},
+      {type:'text',text:prompt}
+    ]}]
+  };
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://api.anthropic.com/v1/messages', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('x-api-key', cleanKey);
+  xhr.setRequestHeader('anthropic-version', '2023-06-01');
+  xhr.setRequestHeader('anthropic-dangerous-direct-browser-access', 'true');
+  
+  xhr.onload = function(){
+    if (xhr.status >= 200 && xhr.status < 300){
+      try {
+        var d = JSON.parse(xhr.responseText);
+        var text = d.content.filter(function(c){ return c.type==='text'; }).map(function(c){ return c.text; }).join('');
+        onSuccess(text);
+      } catch(e){ onError('Parse error: '+e.message); }
+    } else {
+      var msg = 'API error '+xhr.status;
+      try { var j=JSON.parse(xhr.responseText); if(j.error&&j.error.message) msg=j.error.message; } catch(e){}
+      onError(msg);
+    }
+  };
+  xhr.onerror = function(){ onError('Network error'); };
+  xhr.send(JSON.stringify(body));
+}
+
+/* ======================================================
+   CHIPS
+====================================================== */
+function initChips(cid, cb){
+  var el = document.getElementById(cid); if(!el) return;
+  el.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click', function(){
+      el.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('active'); });
+      c.classList.add('active'); cb(c.dataset.v);
+    });
+  });
+}
+
+/* ======================================================
+   WAVEFORM
+====================================================== */
+function buildWf(id, n){
+  var el = document.getElementById(id); if(!el) return;
+  var html = '';
+  for(var i=0;i<n;i++) html += '<div class="wb" style="animation-delay:'+(i*.05).toFixed(2)+'s;height:'+(6+Math.random()*10).toFixed(0)+'px"></div>';
+  el.innerHTML = html;
+}
+
+/* ======================================================
+   NOTES
+====================================================== */
+function gid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2); }
+function saveNotes(){ localStorage.setItem('nv_notes', JSON.stringify(notes)); }
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function renderList(){
+  var q = (document.getElementById('notesSearch').value||'').toLowerCase();
+  var list = document.getElementById('notesList');
+  var f = notes.filter(function(n){ return n.title.toLowerCase().indexOf(q)>-1 || n.body.toLowerCase().indexOf(q)>-1; });
+  if (!f.length){ list.innerHTML='<div style="color:var(--t3);font-size:13px;padding:10px">No notes found</div>'; return; }
+  list.innerHTML = f.map(function(n){
+    return '<div class="ni'+(n.id===curId?' active':'')+'" data-id="'+n.id+'">'
+      +'<div class="nt">'+( esc(n.title)||'Untitled' )+'</div>'
+      +'<div class="np">'+( esc(n.body.slice(0,55))||'Empty' )+'</div>'
+      +'<div class="nd">'+new Date(n.updated).toLocaleDateString()+'</div>'
+      +'</div>';
+  }).join('');
+  list.querySelectorAll('.ni').forEach(function(el){
+    el.addEventListener('click', function(){ loadNote(el.dataset.id); });
+  });
+}
+
+function loadNote(id){
+  var n = notes.find(function(x){ return x.id===id; }); if(!n) return;
+  curId = id;
+  document.getElementById('noteTitleInput').value = n.title;
+  document.getElementById('noteBodyEditor').value = n.body;
+  renderList();
+}
+
+function newNote(){
+  var n = {id:gid(),title:'',body:'',created:Date.now(),updated:Date.now()};
+  notes.unshift(n); saveNotes(); loadNote(n.id);
+}
+
+function autoSave(){
+  if (!curId) return;
+  var n = notes.find(function(x){ return x.id===curId; }); if(!n) return;
+  n.title = document.getElementById('noteTitleInput').value;
+  n.body  = document.getElementById('noteBodyEditor').value;
+  n.updated = Date.now(); saveNotes(); renderList();
+  var b = document.getElementById('savedBadge');
+  b.style.opacity='1'; setTimeout(function(){ b.style.opacity='0'; }, 1400);
+}
+
+function sendToNote(text){
+  if (!text||!text.trim()) return;
+  if (!curId) newNote();
+  var n = notes.find(function(x){ return x.id===curId; }); if(!n) return;
+  n.body += (n.body ? '\n\n' : '') + text;
+  n.updated=Date.now(); saveNotes();
+  document.getElementById('noteBodyEditor').value = n.body;
+  toast('Sent to Notes ✓');
+}
+
+document.getElementById('noteTitleInput').addEventListener('input', function(){ clearTimeout(stimer); stimer=setTimeout(autoSave,700); });
+document.getElementById('noteBodyEditor').addEventListener('input', function(){ clearTimeout(stimer); stimer=setTimeout(autoSave,700); });
+document.getElementById('newNoteBtn').addEventListener('click', newNote);
+document.getElementById('notesSearch').addEventListener('input', renderList);
+
+document.getElementById('deleteNoteBtn').addEventListener('click', function(){
+  if (!curId||!confirm('Delete this note?')) return;
+  notes = notes.filter(function(x){ return x.id!==curId; }); saveNotes(); curId=null;
+  if (notes.length) loadNote(notes[0].id); else newNote();
+});
+
+document.getElementById('copyNoteBtn').addEventListener('click', function(){
+  var t = document.getElementById('noteTitleInput').value;
+  var b = document.getElementById('noteBodyEditor').value;
+  var sep = t ? t+'\n'+'─'.repeat(Math.min(t.length,38))+'\n\n' : '';
+  clipCopy(sep+b);
+});
+
+/* AI Enhance */
+document.getElementById('aiNoteBtn').addEventListener('click', function(){
+  var body = document.getElementById('noteBodyEditor').value.trim();
+  if (!body){ toast('Write something first!','var(--t2)'); return; }
+  var btn = document.getElementById('aiNoteBtn');
+  btn.disabled=true; btn.textContent='⏳ Enhancing…';
+  callClaude(
+    'Improve and enhance the following notes. Make them clearer, more organized and well structured. Preserve all the information but improve quality and grammar:\n\n'+body,
+    'You are an expert writing assistant. Return only the improved text, no commentary or preamble.',
+    1800,
+    function(r){
+      document.getElementById('noteBodyEditor').value = r;
+      autoSave(); toast('Notes enhanced! ✨');
+      btn.disabled=false; btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> AI Enhance';
+    },
+    function(e){
+      toast('Error: '+e,'var(--danger)');
+      btn.disabled=false; btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> AI Enhance';
+    }
+  );
+});
+
+/* Translate bar in Notes */
+document.getElementById('trToggle').addEventListener('click', function(){
+  var b = document.getElementById('trBar');
+  if (b.classList.contains('open')){ b.classList.remove('open'); document.getElementById('trRes').classList.remove('open'); }
+  else b.classList.add('open');
+});
+document.getElementById('closeTr').addEventListener('click', function(){
+  document.getElementById('trBar').classList.remove('open');
+  document.getElementById('trRes').classList.remove('open');
+});
+document.getElementById('doTr').addEventListener('click', function(){
+  var t = document.getElementById('noteTitleInput').value;
+  var b = document.getElementById('noteBodyEditor').value;
+  var lang = document.getElementById('trLang').value;
+  var txt = (t?t+'\n\n':'')+b;
+  if (!txt.trim()){ toast('Write something first!','var(--t2)'); return; }
+  var btn = document.getElementById('doTr');
+  btn.disabled=true; document.getElementById('trLoad').style.display='flex';
+  callClaude(
+    'Translate the following note to '+lang+'. Keep the formatting. Return ONLY the translated text:\n\n'+txt,
+    null, 1800,
+    function(r){
+      document.getElementById('trLabel').textContent = '→ '+lang;
+      document.getElementById('trText').textContent = r;
+      document.getElementById('trRes').classList.add('open');
+      btn.disabled=false; document.getElementById('trLoad').style.display='none';
+    },
+    function(e){
+      toast('Translation error: '+e,'var(--danger)');
+      btn.disabled=false; document.getElementById('trLoad').style.display='none';
+    }
+  );
+});
+document.getElementById('copyTr').addEventListener('click', function(){ clipCopy(document.getElementById('trText').textContent); });
+document.getElementById('appendTr').addEventListener('click', function(){
+  var lang = document.getElementById('trLang').value;
+  sendToNote('── '+lang+' Translation ──\n\n'+document.getElementById('trText').textContent);
+  document.getElementById('trBar').classList.remove('open');
+  document.getElementById('trRes').classList.remove('open');
+});
+
+/* ======================================================
+   DICTATION (Notes panel)
+====================================================== */
+var dRec=null, dOn=false;
+document.getElementById('dictBtn').addEventListener('click', function(){
+  var SR = window.SpeechRecognition||window.webkitSpeechRecognition;
+  if (!SR){ toast('Speech recognition needs Chrome or Safari','var(--danger)'); return; }
+  var btn = document.getElementById('dictBtn');
+  if (dOn){ if(dRec){ try{dRec.stop();}catch(e){} } return; }
+  
+  var lang = document.getElementById('dictLang').value;
+  dRec = new SR();
+  dRec.continuous=true; dRec.interimResults=true; dRec.lang=lang;
+  var finalT = document.getElementById('noteBodyEditor').value;
+  
+  dRec.onstart=function(){ dOn=true; btn.innerHTML='🔴 Stop Dictating'; btn.style.background='rgba(255,79,106,.15)'; btn.style.color='var(--danger)'; };
+  dRec.onresult=function(e){
+    var interim='';
+    for(var i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal) finalT+=e.results[i][0].transcript+' ';
+      else interim+=e.results[i][0].transcript;
+    }
+    document.getElementById('noteBodyEditor').value=finalT+interim;
+    clearTimeout(stimer); stimer=setTimeout(autoSave,700);
+  };
+  dRec.onerror=function(e){
+    var msg=e.error==='not-allowed'?'Mic blocked — allow microphone in browser settings':'Mic error: '+e.error;
+    toast(msg,'var(--danger)'); stopDict();
+  };
+  dRec.onend=stopDict;
+  try{ dRec.start(); }catch(e){ toast('Cannot start mic: '+e.message,'var(--danger)'); }
+});
+
+function stopDict(){
+  dOn=false;
+  var btn=document.getElementById('dictBtn');
+  btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg> Dictate';
+  btn.style.background=''; btn.style.color='';
+  autoSave();
+}
+
+/* ======================================================
+   VOICE PANEL
+====================================================== */
+var vRec=null, vOn=false;
+document.getElementById('voiceStartBtn').addEventListener('click', function(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){ toast('Speech recognition needs Chrome or Safari','var(--danger)'); return; }
+  if(vOn) return;
+  var lang=document.getElementById('voiceLang').value;
+  vRec=new SR(); vRec.continuous=true; vRec.interimResults=true; vRec.lang=lang;
+  var fT=''; document.getElementById('voiceTranscript').value='';
+  vRec.onstart=function(){
+    vOn=true;
+    document.getElementById('voiceStartBtn').disabled=true;
+    document.getElementById('voiceStopBtn').disabled=false;
+    document.getElementById('voiceRecInd').style.display='flex';
+    document.getElementById('voiceWfDiv').style.display='block';
+  };
+  vRec.onresult=function(e){
+    var interim='';
+    for(var i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal) fT+=e.results[i][0].transcript+' ';
+      else interim+=e.results[i][0].transcript;
+    }
+    document.getElementById('voiceTranscript').value=fT+interim;
+  };
+  vRec.onerror=function(e){
+    toast(e.error==='not-allowed'?'Mic blocked — allow in browser settings':'Mic: '+e.error,'var(--danger)');
+    stopVoice();
+  };
+  vRec.onend=stopVoice;
+  try{ vRec.start(); }catch(e){ toast('Cannot start mic: '+e.message,'var(--danger)'); }
+});
+document.getElementById('voiceStopBtn').addEventListener('click', function(){ if(vRec){try{vRec.stop();}catch(e){}} });
+function stopVoice(){
+  vOn=false;
+  document.getElementById('voiceStartBtn').disabled=false;
+  document.getElementById('voiceStopBtn').disabled=true;
+  document.getElementById('voiceRecInd').style.display='none';
+  document.getElementById('voiceWfDiv').style.display='none';
+}
+
+/* ======================================================
+   TRANSLATE (Voice panel)
+====================================================== */
+document.getElementById('translateBtn').addEventListener('click', function(){
+  var text=document.getElementById('transSrc').value.trim();
+  var lang=document.getElementById('transLang').value;
+  if(!text){ toast('Enter text to translate','var(--t2)'); return; }
+  var btn=document.getElementById('translateBtn'), ld=document.getElementById('transLoad'), res=document.getElementById('transResult');
+  btn.disabled=true; ld.style.display='flex'; res.textContent='Translating…';
+  callClaude(
+    'Translate the following text to '+lang+'. Return ONLY the translation, no explanations:\n\n'+text,
+    null, 1800,
+    function(r){ res.textContent=r; btn.disabled=false; ld.style.display='none'; },
+    function(e){ res.textContent='Error: '+e; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
+  );
+});
+
+/* ======================================================
+   REWRITER
+====================================================== */
+document.getElementById('rewriteBtn').addEventListener('click', function(){
+  var text=document.getElementById('rewriteInput').value.trim();
+  if(!text){ toast('Enter text to rewrite','var(--t2)'); return; }
+  var btn=document.getElementById('rewriteBtn'),ld=document.getElementById('rewriteLoad'),sec=document.getElementById('rewriteSec'),res=document.getElementById('rewriteResult');
+  btn.disabled=true; ld.style.display='flex'; sec.style.display='none';
+  callClaude(
+    'Rewrite this text in a '+selStyle+' style. Keep all information but completely transform the writing style:\n\n'+text,
+    null, 1800,
+    function(r){ res.textContent=r; sec.style.display='block'; btn.disabled=false; ld.style.display='none'; },
+    function(e){ res.textContent='Error: '+e; sec.style.display='block'; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
+  );
+});
+
+/* ======================================================
+   MEETING
+====================================================== */
+function fmt(s){ return [Math.floor(s/3600),Math.floor((s%3600)/60),s%60].map(function(x){ return String(x).padStart(2,'0'); }).join(':'); }
+
+function renderMeetList(){
+  var el=document.getElementById('meetTransList');
+  if(!mEntries.length){ el.innerHTML='<div style="color:var(--t3);font-size:13px">Start recording — speech appears here…</div>'; return; }
+  el.innerHTML=mEntries.slice(-12).map(function(e){ return '<div class="te"><div class="tts">'+e.time+'</div>'+esc(e.text)+'</div>'; }).join('');
+  el.scrollTop=el.scrollHeight;
+}
+
+document.getElementById('meetStartBtn').addEventListener('click', function(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  mFull=''; mEntries=[]; mSecs=0; renderMeetList();
+  document.getElementById('meetTimer').textContent='00:00:00';
+  document.getElementById('meetSumSec').style.display='none';
+  mInt=setInterval(function(){ mSecs++; document.getElementById('meetTimer').textContent=fmt(mSecs); },1000);
+  if(SR){
+    var lang=document.getElementById('meetLang').value;
+    mRec=new SR(); mRec.continuous=true; mRec.interimResults=false; mRec.lang=lang;
+    mRec.onresult=function(e){
+      for(var i=e.resultIndex;i<e.results.length;i++){
+        if(e.results[i].isFinal){
+          var t=e.results[i][0].transcript, ts=fmt(mSecs);
+          mFull+='['+ts+'] '+t+'\n'; mEntries.push({time:ts,text:t}); renderMeetList();
+        }
+      }
+    };
+    mRec.onerror=function(e){ if(e.error!=='no-speech') toast('Mic: '+e.error,'var(--danger)'); };
+    mRec.onend=function(){
+      if(!document.getElementById('meetStartBtn').disabled) return;
+      try{ mRec.start(); }catch(e){}
+    };
+    try{ mRec.start(); }catch(e){ toast('Mic error: '+e.message,'var(--danger)'); }
+  } else { toast('Speech not supported — manual notes only','var(--t2)'); }
+  document.getElementById('meetStartBtn').disabled=true;
+  document.getElementById('meetStopBtn').disabled=false;
+  document.getElementById('meetMarkBtn').disabled=false;
+  document.getElementById('meetBadge').style.display='flex';
+  document.getElementById('meetWfDiv').style.display='block';
+});
+
+document.getElementById('meetStopBtn').addEventListener('click', function(){
+  clearInterval(mInt);
+  if(mRec){try{mRec.stop();}catch(e){} mRec=null;}
+  document.getElementById('meetStartBtn').disabled=false;
+  document.getElementById('meetStopBtn').disabled=true;
+  document.getElementById('meetMarkBtn').disabled=true;
+  document.getElementById('meetBadge').style.display='none';
+  document.getElementById('meetWfDiv').style.display='none';
+});
+
+document.getElementById('meetMarkBtn').addEventListener('click', function(){
+  var ts=fmt(mSecs);
+  mEntries.push({time:ts,text:'📌 Note Marker'});
+  mFull+='['+ts+'] 📌 NOTE MARKER\n'; renderMeetList();
+});
+
+document.getElementById('analyzeMeetBtn').addEventListener('click', function(){
+  var agenda=document.getElementById('meetNotes').value.trim();
+  var trans=mFull.trim();
+  if(!trans&&!agenda){ toast('Record something or add notes first','var(--t2)'); return; }
+  var btn=document.getElementById('analyzeMeetBtn'),ld=document.getElementById('meetLoad'),sec=document.getElementById('meetSumSec'),res=document.getElementById('meetSummary');
+  btn.disabled=true; ld.style.display='flex'; sec.style.display='none';
+  var p='Analyze this meeting and write a structured report.\n\nDuration: '+fmt(mSecs)
+    +(trans?'\n\nSpeech Transcript:\n'+trans:'')
+    +(agenda?'\n\nAgenda/Notes:\n'+agenda:'')
+    +'\n\nProvide:\n1. Executive Summary\n2. Key Discussion Points\n3. Decisions Made\n4. Action Items\n5. Next Steps';
+  callClaude(p,'You are an expert meeting analyst. Be clear, concise and actionable.',2000,
+    function(r){ res.textContent=r; sec.style.display='block'; btn.disabled=false; ld.style.display='none'; },
+    function(e){ res.textContent='Error: '+e; sec.style.display='block'; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
+  );
+});
+
+/* ======================================================
+   EMAIL
+====================================================== */
+function runEmail(prompt){
+  ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=true; });
+  var ld=document.getElementById('emailLoad'), res=document.getElementById('emailResult');
+  ld.style.display='flex'; res.textContent='Writing…';
+  callClaude(prompt,'You are an expert business email writer. Write clear, professional emails.',1200,
+    function(r){ res.textContent=r; ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=false; }); ld.style.display='none'; },
+    function(e){ res.textContent='Error: '+e; toast('Failed: '+e,'var(--danger)'); ['genEmailBtn','replyBtn','refineBtn'].forEach(function(id){ document.getElementById(id).disabled=false; }); ld.style.display='none'; }
+  );
+}
+document.getElementById('genEmailBtn').addEventListener('click', function(){
+  var to=document.getElementById('emailTo').value.trim();
+  var p=document.getElementById('emailPurpose').value.trim();
+  if(!p){ toast('Describe the email purpose first','var(--t2)'); return; }
+  var lm={brief:'2-3 sentences',standard:'1-2 paragraphs',detailed:'3+ paragraphs'};
+  var len=document.getElementById('emailLen').value;
+  runEmail('Write a '+selTone+' email.\n'+(to?'Recipient: '+to+'\n':'')+'Purpose: '+p+'\nLength: '+lm[len]+'\n\nStart with Subject: line. Write only the email.');
+});
+document.getElementById('replyBtn').addEventListener('click', function(){
+  var o=document.getElementById('emailRefine').value.trim();
+  if(!o){ toast('Paste an email to reply to','var(--t2)'); return; }
+  runEmail('Write a '+selTone+' reply to this email:\n\n'+o+'\n\nStart with Subject: line. Write only the reply.');
+});
+document.getElementById('refineBtn').addEventListener('click', function(){
+  var o=document.getElementById('emailRefine').value.trim();
+  if(!o){ toast('Paste an email to refine','var(--t2)'); return; }
+  runEmail('Refine and improve this email to be more '+selTone.toLowerCase()+' and professional:\n\n'+o);
+});
+
+/* ======================================================
+   FILE ANALYZER
+====================================================== */
+document.getElementById('fileInput').addEventListener('change', function(e){ handleFiles(Array.from(e.target.files)); });
+var uz=document.getElementById('uploadZone');
+uz.addEventListener('dragover',function(e){e.preventDefault();uz.classList.add('drag');});
+uz.addEventListener('dragleave',function(){uz.classList.remove('drag');});
+uz.addEventListener('drop',function(e){e.preventDefault();uz.classList.remove('drag');handleFiles(Array.from(e.dataTransfer.files));});
+
+function ficon(f){ if(f.type.startsWith('image/')) return '🖼️'; if(f.name.match(/\.pdf$/i)) return '📄'; if(f.name.match(/\.(xlsx?|csv)$/i)) return '📊'; return '📝'; }
+
+function handleFiles(files){
+  upFiles=files; upData=new Array(files.length).fill(null);
+  var ch=document.getElementById('fileChips');
+  ch.innerHTML=files.map(function(f){ return '<div class="chip active">'+ficon(f)+' '+esc(f.name)+'</div>'; }).join('');
+  document.getElementById('fileArea').style.display=files.length?'block':'none';
+  files.forEach(function(f,i){
+    var r=new FileReader();
+    if(f.type.startsWith('image/')){
+      r.onload=function(e){ upData[i]={type:'image',name:f.name,data:e.target.result.split(',')[1],mime:f.type}; };
+      r.readAsDataURL(f);
+    } else {
+      r.onload=function(e){ upData[i]={type:'text',name:f.name,data:e.target.result}; };
+      r.readAsText(f);
+    }
+  });
+}
+
+document.getElementById('analyzeBtn').addEventListener('click', function(){
+  if(!upFiles.length){ toast('Upload files first','var(--t2)'); return; }
+  var btn=document.getElementById('analyzeBtn'),ld=document.getElementById('analyzeLoad'),sec=document.getElementById('analyzeSec'),res=document.getElementById('analyzeResult');
+  var q=document.getElementById('analyzeQ').value.trim();
+  var task=q||selAnalysis;
+  btn.disabled=true; ld.style.display='flex'; sec.style.display='none';
+  setTimeout(function(){
+    var img=upData.find(function(d){ return d&&d.type==='image'; });
+    var txts=upData.filter(function(d){ return d&&d.type==='text'; });
+    if(img){
+      var extra=txts.length?'\n\nAdditional files:\n'+txts.map(function(f){ return '['+f.name+']\n'+f.data.slice(0,3000); }).join('\n\n'):'';
+      callClaudeImg(task+extra, img.data, img.mime,
+        function(r){ res.textContent=r; sec.style.display='block'; btn.disabled=false; ld.style.display='none'; },
+        function(e){ res.textContent='Error: '+e; sec.style.display='block'; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
+      );
+    } else if(txts.length){
+      var combined=txts.map(function(f){ return '=== '+f.name+' ===\n'+f.data.slice(0,4000); }).join('\n\n');
+      callClaude(task+'\n\nFiles:\n'+combined,'You are an expert analyst.',2000,
+        function(r){ res.textContent=r; sec.style.display='block'; btn.disabled=false; ld.style.display='none'; },
+        function(e){ res.textContent='Error: '+e; sec.style.display='block'; toast('Failed: '+e,'var(--danger)'); btn.disabled=false; ld.style.display='none'; }
+      );
+    } else {
+      toast('Files still loading — wait a second and try again','var(--t2)');
+      btn.disabled=false; ld.style.display='none';
+    }
+  }, 400);
+});
+
+/* ======================================================
+   PWA — Service Worker + Install Prompts
+====================================================== */
+(function(){
+  // ── Service Worker ──
+  // SW registration requires a same-origin .js file — not possible from a single
+  // HTML file (blob: and data: URLs are both blocked by spec).
+  // The app works fully offline via localStorage; SW is not needed.
+  // No console noise.
+
+  // ── Android / Desktop install prompt ──
+  var deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!localStorage.getItem('nv_pwa_ok') && !localStorage.getItem('nv_pwa_dismissed')) {
+      setTimeout(function(){
+        var el = document.getElementById('pwaPrompt');
+        if (el) el.style.display = 'block';
+      }, 1500);
+    }
+  });
+
+  var installBtn = document.getElementById('pwaInstallBtn');
+  var dismissBtn = document.getElementById('pwaDismissBtn');
+  
+  if (installBtn) {
+    installBtn.addEventListener('click', function(){
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(choice){
+        if (choice.outcome === 'accepted') {
+          localStorage.setItem('nv_pwa_ok', '1');
+          if (typeof toast === 'function') toast('NoteVerse AI installed! 🎉');
+        }
+        deferredPrompt = null;
+        var el = document.getElementById('pwaPrompt');
+        if (el) el.style.display = 'none';
+      });
+    });
+  }
+  
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function(){
+      var el = document.getElementById('pwaPrompt');
+      if (el) el.style.display = 'none';
+      localStorage.setItem('nv_pwa_dismissed', '1');
+    });
+  }
+
+  window.addEventListener('appinstalled', function(){
+    localStorage.setItem('nv_pwa_ok', '1');
+    var el = document.getElementById('pwaPrompt');
+    if (el) el.style.display = 'none';
+    if (typeof toast === 'function') toast('NoteVerse AI installed! 🎉');
+  });
+
+  // ── iOS Safari "Add to Home Screen" hint ──
+  var ua = navigator.userAgent || '';
+  var isIos = /ipad|iphone|ipod/i.test(ua);
+  var isSafariIos = isIos && /safari/i.test(ua) && !/crios|fxios|opios/i.test(ua);
+  var isStandalone = ('standalone' in navigator && navigator.standalone) ||
+                     window.matchMedia('(display-mode: standalone)').matches;
+
+  if (isSafariIos && !isStandalone && !localStorage.getItem('nv_ios_dismissed')) {
+    setTimeout(function(){
+      var el = document.getElementById('iosHint');
+      if (el) el.style.display = 'block';
+    }, 2000);
+  }
+  
+  var iosClose = document.getElementById('iosHintClose');
+  if (iosClose) {
+    iosClose.addEventListener('click', function(){
+      var el = document.getElementById('iosHint');
+      if (el) el.style.display = 'none';
+      localStorage.setItem('nv_ios_dismissed', '1');
+    });
+  }
+
+  // ── Standalone mode: hide prompts, fix safe areas ──
+  if (isStandalone) {
+    ['pwaPrompt','iosHint'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+  }
+
+  // ── Add "Install App" button in sidebar for desktop ──
+  if (!isStandalone && !localStorage.getItem('nv_pwa_ok')) {
+    var apiBtn = document.getElementById('apiBtnSb');
+    if (apiBtn && apiBtn.parentNode) {
+      var installSbBtn = document.createElement('button');
+      installSbBtn.className = 'nb';
+      installSbBtn.id = 'installSbBtn';
+      installSbBtn.title = 'Install App';
+      installSbBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span class="lbl">Install</span>';
+      installSbBtn.style.color = '#7c6aff';
+      apiBtn.parentNode.insertBefore(installSbBtn, apiBtn);
+      installSbBtn.addEventListener('click', function(){
+        if (isIos) {
+          var el = document.getElementById('iosHint');
+          if (el) { el.style.display = 'block'; localStorage.removeItem('nv_ios_dismissed'); }
+        } else if (deferredPrompt) {
+          installSbBtn.click(); // re-trigger install
+          var el = document.getElementById('pwaPrompt');
+          if (el) el.style.display = 'block';
+        } else {
+          if (typeof toast === 'function') toast('Open in Chrome/Edge/Safari and reload to install', 'var(--t2)');
+        }
+      });
+    }
+  }
+})();
+
+</script>
+
+<!-- PWA Install Banner -->
+<div id="pwaPrompt" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:3000;padding:14px 16px;background:linear-gradient(135deg,#1a1828,#1e1e2e);border-top:1px solid rgba(124,106,255,.3);box-shadow:0 -8px 40px rgba(0,0,0,.5);">
+  <div style="max-width:520px;margin:0 auto;display:flex;align-items:center;gap:12px">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=" style="width:48px;height:48px;border-radius:12px;flex-shrink:0" alt="NoteVerse">
+    <div style="flex:1;min-width:0">
+      <div style="font-family:Syne,sans-serif;font-weight:700;font-size:15px;color:#f0f0f5">Install NoteVerse AI</div>
+      <div style="font-size:12px;color:#9090a8;margin-top:2px">Add to Home Screen for offline use</div>
+    </div>
+    <button id="pwaInstallBtn" style="flex-shrink:0;padding:9px 16px;background:#7c6aff;color:#fff;border:none;border-radius:9px;font-family:DM Sans,sans-serif;font-size:13px;font-weight:600;cursor:pointer">Install</button>
+    <button id="pwaDismissBtn" style="flex-shrink:0;padding:9px 10px;background:rgba(255,255,255,.07);color:#9090a8;border:none;border-radius:9px;font-family:DM Sans,sans-serif;font-size:13px;cursor:pointer">✕</button>
+  </div>
+</div>
+
+<!-- iOS Install Hint (shows on Safari iOS) -->
+<div id="iosHint" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:3000;padding:14px 16px 24px;background:linear-gradient(135deg,#1a1828,#1e1e2e);border-top:1px solid rgba(124,106,255,.3);box-shadow:0 -8px 40px rgba(0,0,0,.5);">
+  <div style="max-width:480px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOWI4YWZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzViNGRlOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZzIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZDhmZjtzdG9wLW9wYWNpdHk6MC45Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEJhY2tncm91bmQgcm91bmRlZCByZWN0IC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cxKSIvPgogIDwhLS0gU3VidGxlIGlubmVyIGdsb3cgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjQ3MiIgcng9Ijk2IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xMikiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwhLS0gTiBsZXR0ZXIgLS0+CiAgPHRleHQgeD0iNjAiIHk9IjM0MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI2cyKSIgbGV0dGVyLXNwYWNpbmc9Ii0xMCI+TlY8L3RleHQ+CiAgPCEtLSBBSSBzcGFya2xlIGRvdHMgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iOTAiIHI9IjE0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iNTUiIHI9IjYiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgo8L3N2Zz4=" style="width:40px;height:40px;border-radius:10px" alt="NoteVerse">
+      <div>
+        <div style="font-family:Syne,sans-serif;font-weight:700;font-size:15px;color:#f0f0f5">Install NoteVerse AI</div>
+        <div style="font-size:12px;color:#9090a8">Add to your Home Screen</div>
+      </div>
+      <button id="iosHintClose" style="margin-left:auto;background:none;border:none;color:#9090a8;font-size:18px;cursor:pointer;padding:4px">✕</button>
+    </div>
+    <div style="background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);border-radius:10px;padding:12px;font-size:13px;color:#c8c0ff;line-height:1.6">
+      <strong style="color:#a898ff">On iPhone/iPad:</strong><br>
+      1. Tap the <strong>Share</strong> button <span style="font-size:15px">⎦↑⎡</span> at the bottom of Safari<br>
+      2. Scroll down and tap <strong>"Add to Home Screen"</strong><br>
+      3. Tap <strong>"Add"</strong> — done! 🎉
+    </div>
+  </div>
+</div>
+</body>
+</html>

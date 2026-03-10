@@ -388,7 +388,7 @@ body{
         <select class="sel" id="dictLang" style="font-size:12px;padding:6px 9px" title="Dictation language">
           <option value="en-US">🇺🇸 English (US)</option>
           <option value="en-GB">🇬🇧 English (UK)</option>
-          <option value="ml-IN">🇮🇳 Malayalam</option>
+          <option value="ml-IN">🇮🇳 Malayalam (Desktop/Android only)</option>
           <option value="hi-IN">🇮🇳 Hindi</option>
           <option value="ar-SA">🇸🇦 Arabic</option>
           <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
@@ -485,7 +485,7 @@ body{
         <select class="sel" id="voiceLang">
           <option value="en-US">🇺🇸 English (US)</option>
           <option value="en-GB">🇬🇧 English (UK / British)</option>
-          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം)</option>
+          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം — Desktop/Android)</option>
           <option value="hi-IN">🇮🇳 Hindi (हिन्दी)</option>
           <option value="ar-SA">🇸🇦 Arabic</option>
           <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
@@ -613,17 +613,21 @@ body{
     </div>
     <div id="meetBadge" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
   </div>
-  <div class="ca">
+  <div class="ca" id="meetScrollArea" style="padding-bottom:24px">
     <div class="sc" style="text-align:center">
       <div class="mti" id="meetTimer">00:00:00</div>
       <div id="meetWfDiv" style="display:none"><div class="wf" id="meetWfBars"></div></div>
+      <!-- iOS mic permission notice -->
+      <div id="iosMicNotice" style="display:none;background:rgba(255,184,48,.1);border:1px solid rgba(255,184,48,.3);border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:var(--amber);text-align:left">
+        ⚠️ <strong>iPhone/iPad:</strong> Tap "Start Recording" then tap <strong>Allow</strong> when Safari asks for microphone access. Malayalam may not be available on iOS — use English or Hindi instead.
+      </div>
       <div style="text-align:left;margin-bottom:11px">
         <div class="fl">Meeting Language</div>
         <select class="sel" id="meetLang">
           <option value="en-US">🇺🇸 English (US)</option>
           <option value="en-GB">🇬🇧 English (UK)</option>
-          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം)</option>
-          <option value="hi-IN">🇮🇳 Hindi</option>
+          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം — Desktop/Android)</option>
+          <option value="hi-IN">🇮🇳 Hindi (हिंदी)</option>
           <option value="ar-SA">🇸🇦 Arabic</option>
           <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
           <option value="fr-FR">🇫🇷 French</option>
@@ -636,6 +640,16 @@ body{
           <option value="tr-TR">🇹🇷 Turkish</option>
           <option value="ur-PK">🇵🇰 Urdu</option>
         </select>
+      </div>
+      <!-- Two-person mode toggle -->
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:10px 12px;background:var(--s2);border:1px solid var(--border);border-radius:8px">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--t2)">
+          <input type="checkbox" id="twoPersonMode" style="width:16px;height:16px;accent-color:var(--ac);cursor:pointer">
+          <span><strong style="color:var(--t)">Two-Person Mode</strong> — pass phone between speakers</span>
+        </label>
+      </div>
+      <div id="twoPersonHint" style="display:none;background:rgba(124,106,255,.08);border:1px solid rgba(124,106,255,.2);border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:var(--t2);text-align:left">
+        📱 <strong style="color:var(--ac)">How it works:</strong> Person 1 speaks → tap <strong>Switch Speaker</strong> → pass phone → Person 2 speaks. Each turn is labeled separately in the transcript.
       </div>
       <div class="fx gap8 aic wrap" style="justify-content:center">
         <button class="btn bp" id="meetStartBtn">
@@ -650,11 +664,15 @@ body{
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           Mark
         </button>
+        <button class="btn bs" id="meetSwitchBtn" disabled style="display:none;background:rgba(124,106,255,.15);color:var(--ac);border-color:rgba(124,106,255,.3)">
+          🔄 Switch Speaker
+        </button>
       </div>
+      <div id="speakerLabel" style="display:none;margin-top:8px;font-size:12px;font-weight:600;color:var(--ac)">🎤 Speaker 1 is talking…</div>
     </div>
     <div class="sc">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Live Transcript</h3>
-      <div id="meetTransList" style="display:flex;flex-direction:column;gap:6px;max-height:180px;overflow-y:auto">
+      <div id="meetTransList" style="display:flex;flex-direction:column;gap:6px;max-height:220px;overflow-y:auto;-webkit-overflow-scrolling:touch">
         <div style="color:var(--t3);font-size:13px">Start recording — speech appears here…</div>
       </div>
     </div>
@@ -662,12 +680,12 @@ body{
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Agenda / Notes</h3>
       <textarea class="ta" id="meetNotes" rows="3" placeholder="Add agenda items or manual notes…"></textarea>
     </div>
-    <div class="fx gap8 aic wrap">
-      <button class="btn bp" id="analyzeMeetBtn">
+    <div class="sc">
+      <button class="btn bp" id="analyzeMeetBtn" style="width:100%;justify-content:center;font-size:15px;padding:14px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         AI Analyze Meeting
       </button>
-      <div id="meetLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Analyzing…</div>
+      <div id="meetLoad" class="ait" style="display:none;margin-top:10px"><div class="dp"><span></span><span></span><span></span></div> Analyzing meeting…</div>
     </div>
     <div id="meetSumSec" style="display:none">
       <div class="fl">Meeting Analysis</div>
@@ -1262,36 +1280,119 @@ document.getElementById('appendTr').addEventListener('click', function(){
 });
 
 /* ======================================================
+   SPEECH UTILITIES
+====================================================== */
+
+// Detect iOS Safari
+var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+// Show iOS notice in meeting panel
+if(isIOS){
+  var n=document.getElementById('iosMicNotice');
+  if(n) n.style.display='block';
+}
+
+// iOS does NOT support ml-IN (Malayalam) — replace with hi-IN silently + warn
+function safeLang(lang){
+  if(isIOS && lang==='ml-IN'){
+    toast('Malayalam not available on iPhone/iPad — switched to Hindi. Use a laptop/desktop for Malayalam.','var(--amber)');
+    return 'hi-IN';
+  }
+  return lang;
+}
+
+// Ask for mic permission via getUserMedia first (required on iOS Safari)
+// Returns promise that resolves true/false
+function requestMicPermission(){
+  return new Promise(function(resolve){
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+      resolve(true); // old browser, just try anyway
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({audio:true})
+      .then(function(stream){
+        // Stop the stream — we just needed the permission grant
+        stream.getTracks().forEach(function(t){ t.stop(); });
+        resolve(true);
+      })
+      .catch(function(err){
+        var msg = '';
+        if(err.name==='NotAllowedError'||err.name==='PermissionDeniedError'){
+          if(isIOS){
+            msg = 'Mic blocked on iPhone. Go to Settings → Safari → Microphone → Allow for this site.';
+          } else {
+            msg = 'Mic blocked. Tap the 🔒 lock icon in your browser address bar and allow Microphone.';
+          }
+        } else if(err.name==='NotFoundError'){
+          msg = 'No microphone found on this device.';
+        } else {
+          msg = 'Mic error: '+err.name+'. '+err.message;
+        }
+        toast(msg,'var(--danger)');
+        resolve(false);
+      });
+  });
+}
+
+// Build a SpeechRecognition instance with proper settings
+function buildSR(lang, continuous, interim){
+  var SR = window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR) return null;
+  var r = new SR();
+  r.continuous    = continuous  !== false;
+  r.interimResults= interim     !== false;
+  r.lang          = safeLang(lang);
+  r.maxAlternatives = 1;
+  return r;
+}
+
+/* ======================================================
    DICTATION (Notes panel)
 ====================================================== */
 var dRec=null, dOn=false;
 document.getElementById('dictBtn').addEventListener('click', function(){
   var SR = window.SpeechRecognition||window.webkitSpeechRecognition;
-  if (!SR){ toast('Speech recognition needs Chrome or Safari','var(--danger)'); return; }
+  if(!SR){ toast('Speech recognition requires Chrome on Android, or Safari on iPhone/iPad','var(--danger)'); return; }
   var btn = document.getElementById('dictBtn');
-  if (dOn){ if(dRec){ try{dRec.stop();}catch(e){} } return; }
-  
-  var lang = document.getElementById('dictLang').value;
-  dRec = new SR();
-  dRec.continuous=true; dRec.interimResults=true; dRec.lang=lang;
-  var finalT = document.getElementById('noteBodyEditor').value;
-  
-  dRec.onstart=function(){ dOn=true; btn.innerHTML='🔴 Stop Dictating'; btn.style.background='rgba(255,79,106,.15)'; btn.style.color='var(--danger)'; };
-  dRec.onresult=function(e){
-    var interim='';
-    for(var i=e.resultIndex;i<e.results.length;i++){
-      if(e.results[i].isFinal) finalT+=e.results[i][0].transcript+' ';
-      else interim+=e.results[i][0].transcript;
-    }
-    document.getElementById('noteBodyEditor').value=finalT+interim;
-    clearTimeout(stimer); stimer=setTimeout(autoSave,700);
-  };
-  dRec.onerror=function(e){
-    var msg=e.error==='not-allowed'?'Mic blocked — allow microphone in browser settings':'Mic error: '+e.error;
-    toast(msg,'var(--danger)'); stopDict();
-  };
-  dRec.onend=stopDict;
-  try{ dRec.start(); }catch(e){ toast('Cannot start mic: '+e.message,'var(--danger)'); }
+  if(dOn){ if(dRec){ try{dRec.stop();}catch(e){} } dOn=false; return; }
+
+  requestMicPermission().then(function(ok){
+    if(!ok) return;
+    var lang = document.getElementById('dictLang').value;
+    dRec = buildSR(lang, true, true);
+    var finalT = document.getElementById('noteBodyEditor').value;
+
+    dRec.onstart=function(){
+      dOn=true;
+      btn.innerHTML='🔴 Stop Dictating';
+      btn.style.background='rgba(255,79,106,.15)';
+      btn.style.color='var(--danger)';
+    };
+    dRec.onresult=function(e){
+      var interim='';
+      for(var i=e.resultIndex;i<e.results.length;i++){
+        if(e.results[i].isFinal) finalT+=e.results[i][0].transcript+' ';
+        else interim+=e.results[i][0].transcript;
+      }
+      document.getElementById('noteBodyEditor').value=finalT+interim;
+      clearTimeout(stimer); stimer=setTimeout(autoSave,700);
+    };
+    dRec.onerror=function(e){
+      if(e.error==='no-speech') return; // normal on iOS, just restart
+      var msg = e.error==='not-allowed'
+        ? (isIOS ? 'Mic blocked. Go to Settings → Safari → Microphone → Allow.' : 'Mic blocked — tap the address bar lock icon and allow microphone.')
+        : 'Mic error: '+e.error;
+      toast(msg,'var(--danger)');
+      stopDict();
+    };
+    dRec.onend=function(){
+      // Auto-restart on iOS (Safari stops after ~60s)
+      if(dOn){ try{ dRec.start(); }catch(e){ stopDict(); } }
+      else { stopDict(); }
+    };
+    try{ dRec.start(); }catch(e){ toast('Cannot start mic: '+e.message,'var(--danger)'); }
+  });
 });
 
 function stopDict(){
@@ -1308,34 +1409,49 @@ function stopDict(){
 var vRec=null, vOn=false;
 document.getElementById('voiceStartBtn').addEventListener('click', function(){
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){ toast('Speech recognition needs Chrome or Safari','var(--danger)'); return; }
+  if(!SR){ toast('Speech recognition requires Chrome on Android, or Safari on iPhone/iPad','var(--danger)'); return; }
   if(vOn) return;
-  var lang=document.getElementById('voiceLang').value;
-  vRec=new SR(); vRec.continuous=true; vRec.interimResults=true; vRec.lang=lang;
-  var fT=''; document.getElementById('voiceTranscript').value='';
-  vRec.onstart=function(){
-    vOn=true;
-    document.getElementById('voiceStartBtn').disabled=true;
-    document.getElementById('voiceStopBtn').disabled=false;
-    document.getElementById('voiceRecInd').style.display='flex';
-    document.getElementById('voiceWfDiv').style.display='block';
-  };
-  vRec.onresult=function(e){
-    var interim='';
-    for(var i=e.resultIndex;i<e.results.length;i++){
-      if(e.results[i].isFinal) fT+=e.results[i][0].transcript+' ';
-      else interim+=e.results[i][0].transcript;
-    }
-    document.getElementById('voiceTranscript').value=fT+interim;
-  };
-  vRec.onerror=function(e){
-    toast(e.error==='not-allowed'?'Mic blocked — allow in browser settings':'Mic: '+e.error,'var(--danger)');
-    stopVoice();
-  };
-  vRec.onend=stopVoice;
-  try{ vRec.start(); }catch(e){ toast('Cannot start mic: '+e.message,'var(--danger)'); }
+
+  requestMicPermission().then(function(ok){
+    if(!ok) return;
+    var lang=document.getElementById('voiceLang').value;
+    vRec=buildSR(lang, true, true);
+    var fT=''; document.getElementById('voiceTranscript').value='';
+
+    vRec.onstart=function(){
+      vOn=true;
+      document.getElementById('voiceStartBtn').disabled=true;
+      document.getElementById('voiceStopBtn').disabled=false;
+      document.getElementById('voiceRecInd').style.display='flex';
+      document.getElementById('voiceWfDiv').style.display='block';
+    };
+    vRec.onresult=function(e){
+      var interim='';
+      for(var i=e.resultIndex;i<e.results.length;i++){
+        if(e.results[i].isFinal) fT+=e.results[i][0].transcript+' ';
+        else interim+=e.results[i][0].transcript;
+      }
+      document.getElementById('voiceTranscript').value=fT+interim;
+    };
+    vRec.onerror=function(e){
+      if(e.error==='no-speech') return;
+      toast(e.error==='not-allowed'
+        ? (isIOS ? 'Mic blocked. Settings → Safari → Microphone → Allow.' : 'Mic blocked — allow in browser settings')
+        : 'Mic: '+e.error,'var(--danger)');
+      stopVoice();
+    };
+    vRec.onend=function(){
+      if(vOn){ try{ vRec.start(); }catch(e){ stopVoice(); } }
+      else { stopVoice(); }
+    };
+    try{ vRec.start(); }catch(e){ toast('Cannot start mic: '+e.message,'var(--danger)'); }
+  });
 });
-document.getElementById('voiceStopBtn').addEventListener('click', function(){ if(vRec){try{vRec.stop();}catch(e){}} });
+
+document.getElementById('voiceStopBtn').addEventListener('click', function(){
+  vOn=false;
+  if(vRec){ try{vRec.stop();}catch(e){} }
+});
 function stopVoice(){
   vOn=false;
   document.getElementById('voiceStartBtn').disabled=false;
@@ -1385,54 +1501,126 @@ function fmt(s){ return [Math.floor(s/3600),Math.floor((s%3600)/60),s%60].map(fu
 function renderMeetList(){
   var el=document.getElementById('meetTransList');
   if(!mEntries.length){ el.innerHTML='<div style="color:var(--t3);font-size:13px">Start recording — speech appears here…</div>'; return; }
-  el.innerHTML=mEntries.slice(-12).map(function(e){ return '<div class="te"><div class="tts">'+e.time+'</div>'+esc(e.text)+'</div>'; }).join('');
+  el.innerHTML=mEntries.slice(-20).map(function(e){
+    var spColor = e.speaker===2 ? 'var(--ac2)' : 'var(--ac)';
+    var spLabel = e.speaker ? '<span style="font-size:10px;font-weight:700;color:'+spColor+';margin-right:4px">S'+e.speaker+'</span>' : '';
+    var borderColor = e.speaker===2 ? 'var(--ac2)' : 'var(--ac)';
+    return '<div class="te" style="border-left-color:'+borderColor+'"><div class="tts">'+e.time+'</div>'+spLabel+esc(e.text)+'</div>';
+  }).join('');
   el.scrollTop=el.scrollHeight;
 }
 
-document.getElementById('meetStartBtn').addEventListener('click', function(){
-  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  mFull=''; mEntries=[]; mSecs=0; renderMeetList();
-  document.getElementById('meetTimer').textContent='00:00:00';
-  document.getElementById('meetSumSec').style.display='none';
-  mInt=setInterval(function(){ mSecs++; document.getElementById('meetTimer').textContent=fmt(mSecs); },1000);
-  if(SR){
-    var lang=document.getElementById('meetLang').value;
-    mRec=new SR(); mRec.continuous=true; mRec.interimResults=false; mRec.lang=lang;
-    mRec.onresult=function(e){
-      for(var i=e.resultIndex;i<e.results.length;i++){
-        if(e.results[i].isFinal){
-          var t=e.results[i][0].transcript, ts=fmt(mSecs);
-          mFull+='['+ts+'] '+t+'\n'; mEntries.push({time:ts,text:t}); renderMeetList();
-        }
-      }
-    };
-    mRec.onerror=function(e){ if(e.error!=='no-speech') toast('Mic: '+e.error,'var(--danger)'); };
-    mRec.onend=function(){
-      if(!document.getElementById('meetStartBtn').disabled) return;
-      try{ mRec.start(); }catch(e){}
-    };
-    try{ mRec.start(); }catch(e){ toast('Mic error: '+e.message,'var(--danger)'); }
-  } else { toast('Speech not supported — manual notes only','var(--t2)'); }
-  document.getElementById('meetStartBtn').disabled=true;
-  document.getElementById('meetStopBtn').disabled=false;
-  document.getElementById('meetMarkBtn').disabled=false;
-  document.getElementById('meetBadge').style.display='flex';
-  document.getElementById('meetWfDiv').style.display='block';
+/* Two-person mode state */
+var mSpeaker=1, mTwoPerson=false;
+
+document.getElementById('twoPersonMode').addEventListener('change', function(){
+  mTwoPerson=this.checked;
+  document.getElementById('twoPersonHint').style.display=mTwoPerson?'block':'none';
+  document.getElementById('meetSwitchBtn').style.display=mTwoPerson?'inline-flex':'none';
 });
 
-document.getElementById('meetStopBtn').addEventListener('click', function(){
+function meetSetSpeaker(n){
+  mSpeaker=n;
+  var lbl=document.getElementById('speakerLabel');
+  lbl.style.display='block';
+  lbl.textContent='🎤 Speaker '+n+' is talking…';
+  lbl.style.color=n===1?'var(--ac)':'var(--ac2)';
+}
+
+document.getElementById('meetSwitchBtn').addEventListener('click', function(){
+  meetSetSpeaker(mSpeaker===1?2:1);
+  toast('Switched to Speaker '+mSpeaker+' — pass the phone now','var(--ac)');
+  // Restart recognition for the new speaker
+  if(mRec){
+    try{ mRec.stop(); }catch(e){}
+    // onend will restart it automatically
+  }
+});
+
+function startMeetRecognition(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR) return;
+  var lang=document.getElementById('meetLang').value;
+  mRec=buildSR(lang, true, false);
+
+  mRec.onresult=function(e){
+    for(var i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal){
+        var t=e.results[i][0].transcript.trim();
+        if(!t) continue;
+        var ts=fmt(mSecs);
+        var label=mTwoPerson?'['+ts+'] Speaker '+mSpeaker+': ':'['+ts+'] ';
+        mFull+=label+t+'\n';
+        mEntries.push({
+          time:ts,
+          text:t,
+          speaker:mTwoPerson?mSpeaker:0
+        });
+        renderMeetList();
+      }
+    }
+  };
+  mRec.onerror=function(e){
+    if(e.error==='no-speech') return; // common on iOS, not an error
+    if(e.error==='not-allowed'){
+      toast(isIOS?'Mic blocked. Settings → Safari → Microphone → Allow.':'Mic blocked — allow microphone in browser settings.','var(--danger)');
+      stopMeetRecording();
+      return;
+    }
+    // other errors: just log, don't stop
+    console.warn('Meet SR error:',e.error);
+  };
+  mRec.onend=function(){
+    // Auto-restart as long as recording is active (handles iOS 60s limit + no-speech stops)
+    if(document.getElementById('meetStopBtn').disabled===false){
+      setTimeout(function(){
+        try{ mRec.start(); }catch(e){ console.warn('SR restart failed',e); }
+      }, 150);
+    }
+  };
+  try{ mRec.start(); }catch(e){ toast('Mic error: '+e.message,'var(--danger)'); }
+}
+
+function stopMeetRecording(){
   clearInterval(mInt);
   if(mRec){try{mRec.stop();}catch(e){} mRec=null;}
   document.getElementById('meetStartBtn').disabled=false;
   document.getElementById('meetStopBtn').disabled=true;
   document.getElementById('meetMarkBtn').disabled=true;
+  document.getElementById('meetSwitchBtn').disabled=true;
   document.getElementById('meetBadge').style.display='none';
   document.getElementById('meetWfDiv').style.display='none';
+  document.getElementById('speakerLabel').style.display='none';
+}
+
+document.getElementById('meetStartBtn').addEventListener('click', function(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  mFull=''; mEntries=[]; mSecs=0; mSpeaker=1; renderMeetList();
+  document.getElementById('meetTimer').textContent='00:00:00';
+  document.getElementById('meetSumSec').style.display='none';
+  if(!SR){ toast('Speech not supported on this browser — add manual notes below','var(--t2)'); }
+
+  requestMicPermission().then(function(ok){
+    if(!ok) return;
+    mInt=setInterval(function(){ mSecs++; document.getElementById('meetTimer').textContent=fmt(mSecs); },1000);
+    document.getElementById('meetStartBtn').disabled=true;
+    document.getElementById('meetStopBtn').disabled=false;
+    document.getElementById('meetMarkBtn').disabled=false;
+    if(mTwoPerson){
+      document.getElementById('meetSwitchBtn').disabled=false;
+      meetSetSpeaker(1);
+    }
+    document.getElementById('meetBadge').style.display='flex';
+    document.getElementById('meetWfDiv').style.display='block';
+    if(SR) startMeetRecognition();
+  });
 });
+
+document.getElementById('meetStopBtn').addEventListener('click', stopMeetRecording);
 
 document.getElementById('meetMarkBtn').addEventListener('click', function(){
   var ts=fmt(mSecs);
-  mEntries.push({time:ts,text:'📌 Note Marker'});
+  mEntries.push({time:ts,text:'📌 Note Marker',speaker:0});
   mFull+='['+ts+'] 📌 NOTE MARKER\n'; renderMeetList();
 });
 

@@ -115,7 +115,7 @@ body{
 .ph{padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
 .ptit{font-family:"Syne",sans-serif;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
 .ptit svg{width:18px;height:18px;color:var(--ac)}
-.ca{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px;display:flex;flex-direction:column;gap:14px}
+.ca{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px;padding-bottom:calc(18px + 70px + var(--sab));display:flex;flex-direction:column;gap:14px}
 
 /* ── BUTTONS ── */
 .btn{
@@ -258,6 +258,7 @@ body{
 
 /* ── TABLET (iPad) ── */
 @media(max-width:760px){
+  .ca{padding-bottom:calc(13px + 70px + var(--sab))}
   .sb{width:54px}
   .nb{width:38px;height:38px}
   .nlp{width:200px}
@@ -267,6 +268,10 @@ body{
 }
 
 /* ── MOBILE (iPhone / Android) ── */
+/* Desktop: .ca needs no extra bottom padding (no bottom nav) */
+@media(min-width:561px){
+  .ca{padding-bottom:18px}
+}
 @media(max-width:560px){
   /* Bottom nav bar */
   .sb{
@@ -613,7 +618,7 @@ body{
     </div>
     <div id="meetBadge" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
   </div>
-  <div class="ca" id="meetScrollArea" style="padding-bottom:24px">
+  <div class="ca" id="meetScrollArea">
     <div class="sc" style="text-align:center">
       <div class="mti" id="meetTimer">00:00:00</div>
       <div id="meetWfDiv" style="display:none"><div class="wf" id="meetWfBars"></div></div>

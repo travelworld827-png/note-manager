@@ -477,11 +477,21 @@ body{
 
 <!-- ========== VOICE ========== -->
 <section class="panel" id="panel-voice">
+  <!-- Fixed header with tab + Translate button -->
   <div class="ph" style="padding-bottom:0;flex-direction:column;align-items:stretch;gap:0">
-    <div class="ptit" style="padding-bottom:10px">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-      Voice &amp; Translation
+    <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px">
+      <div class="ptit" style="flex:1;min-width:0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+        Voice &amp; Translation
+      </div>
+      <!-- Translate button — only visible on translate tab -->
+      <div id="transLoad" class="ait" style="display:none;flex-shrink:0"><div class="dp"><span></span><span></span><span></span></div></div>
+      <button class="btn bp" id="translateBtn" style="display:none;flex-shrink:0;font-size:12px;padding:7px 12px;min-height:34px;white-space:nowrap" id="translateBtnHdr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Translate
+      </button>
     </div>
+    <!-- Tab bar -->
     <div style="display:flex;gap:0;border-top:1px solid var(--border)">
       <button id="vctab1" onclick="vcTab(1)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:var(--glow);color:var(--ac);border:none;border-bottom:2px solid var(--ac);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">🎙️ Record</button>
       <button id="vctab2" onclick="vcTab(2)" style="flex:1;padding:9px 6px;font-size:12px;font-weight:600;background:transparent;color:var(--t2);border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s">🌐 Translate</button>
@@ -492,45 +502,46 @@ body{
   <div class="ca" id="vcPane1">
     <div class="sc fxc gap12">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>Speech to Text</h3>
-      <div>
-        <div class="fl">Recording Language</div>
-        <select class="sel" id="voiceLang">
-          <option value="en-US">🇺🇸 English (US)</option>
-          <option value="en-GB">🇬🇧 English (UK / British)</option>
-          <option value="ml-IN">🇮🇳 Malayalam (മലയാളം — Desktop/Android)</option>
-          <option value="hi-IN">🇮🇳 Hindi (हिन्दी)</option>
-          <option value="ar-SA">🇸🇦 Arabic</option>
-          <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
-          <option value="fr-FR">🇫🇷 French</option>
-          <option value="de-DE">🇩🇪 German</option>
-          <option value="es-ES">🇪🇸 Spanish</option>
-          <option value="zh-CN">🇨🇳 Chinese (Simplified)</option>
-          <option value="ja-JP">🇯🇵 Japanese</option>
-          <option value="ko-KR">🇰🇷 Korean</option>
-          <option value="ru-RU">🇷🇺 Russian</option>
-          <option value="tr-TR">🇹🇷 Turkish</option>
-          <option value="ur-PK">🇵🇰 Urdu</option>
-        </select>
-      </div>
-      <div class="fx gap8 aic wrap">
-        <button class="btn bp" id="voiceStartBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
-          Start Recording
+      <!-- Language + Start/Stop in one compact row -->
+      <div style="display:flex;align-items:flex-end;gap:8px">
+        <div style="flex:1;min-width:0">
+          <div class="fl" style="margin-bottom:3px">Language</div>
+          <select class="sel" id="voiceLang" style="width:100%;font-size:13px;padding:6px 26px 6px 8px;min-height:36px">
+            <option value="en-US">🇺🇸 English (US)</option>
+            <option value="en-GB">🇬🇧 English (UK)</option>
+            <option value="ml-IN">🇮🇳 Malayalam*</option>
+            <option value="hi-IN">🇮🇳 Hindi</option>
+            <option value="ar-SA">🇸🇦 Arabic</option>
+            <option value="ar-AE">🇦🇪 Arabic (UAE)</option>
+            <option value="fr-FR">🇫🇷 French</option>
+            <option value="de-DE">🇩🇪 German</option>
+            <option value="es-ES">🇪🇸 Spanish</option>
+            <option value="zh-CN">🇨🇳 Chinese</option>
+            <option value="ja-JP">🇯🇵 Japanese</option>
+            <option value="ko-KR">🇰🇷 Korean</option>
+            <option value="ru-RU">🇷🇺 Russian</option>
+            <option value="tr-TR">🇹🇷 Turkish</option>
+            <option value="ur-PK">🇵🇰 Urdu</option>
+          </select>
+        </div>
+        <button class="btn bp" id="voiceStartBtn" style="flex-shrink:0;min-height:36px;padding:6px 14px;font-size:13px;white-space:nowrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+          Start
         </button>
-        <button class="btn bd" id="voiceStopBtn" disabled>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        <button class="btn bd" id="voiceStopBtn" disabled style="flex-shrink:0;min-height:36px;padding:6px 14px;font-size:13px;white-space:nowrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
           Stop
         </button>
-        <div id="voiceRecInd" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
       </div>
+      <div id="voiceRecInd" style="display:none"><div class="ri"><div class="rd"></div> Recording</div></div>
       <div id="voiceWfDiv" style="display:none"><div class="wf" id="voiceWfBars"></div></div>
       <div>
         <div class="fl">Transcript</div>
         <textarea class="ta" id="voiceTranscript" rows="6" placeholder="Your speech will appear here…"></textarea>
       </div>
       <div class="fx gap8 wrap">
-        <button class="btn bs" onclick="clipCopy(document.getElementById('voiceTranscript').value)">📋 Copy</button>
-        <button class="btn bs" onclick="sendToNote(document.getElementById('voiceTranscript').value)">📝 Send to Notes</button>
+        <button class="btn bs" style="flex:1;justify-content:center" onclick="clipCopy(document.getElementById('voiceTranscript').value)">📋 Copy</button>
+        <button class="btn bs" style="flex:1;justify-content:center" onclick="sendToNote(document.getElementById('voiceTranscript').value)">📝 To Notes</button>
       </div>
     </div>
   </div>
@@ -541,25 +552,25 @@ body{
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Translate Text</h3>
       <div>
         <div class="fl">Source Text</div>
-        <textarea class="ta" id="transSrc" rows="5" placeholder="Type or paste text to translate…"></textarea>
+        <textarea class="ta" id="transSrc" rows="4" placeholder="Type or paste text to translate…"></textarea>
       </div>
       <div>
         <div class="fl">Translate To</div>
         <select class="sel" id="transLang">
           <option value="British English">🇬🇧 British English</option>
-          <option value="American English">🇺🇸 American English (US)</option>
+          <option value="American English">🇺🇸 American English</option>
           <option value="Arabic">Arabic (العربية)</option>
           <option value="Malayalam">Malayalam (മലയാളം)</option>
           <option value="Hindi">Hindi (हिन्दी)</option>
           <option value="French">French (Français)</option>
           <option value="Spanish">Spanish (Español)</option>
           <option value="German">German (Deutsch)</option>
-          <option value="Chinese Simplified">Chinese Simplified (简体中文)</option>
-          <option value="Chinese Traditional">Chinese Traditional (繁體中文)</option>
+          <option value="Chinese Simplified">Chinese Simplified</option>
+          <option value="Chinese Traditional">Chinese Traditional</option>
           <option value="Japanese">Japanese (日本語)</option>
           <option value="Korean">Korean (한국어)</option>
           <option value="Urdu">Urdu (اردو)</option>
-          <option value="Portuguese">Portuguese (Português)</option>
+          <option value="Portuguese">Portuguese</option>
           <option value="Italian">Italian</option>
           <option value="Russian">Russian (Русский)</option>
           <option value="Turkish">Turkish (Türkçe)</option>
@@ -570,23 +581,18 @@ body{
           <option value="Persian">Persian (فارسی)</option>
         </select>
       </div>
-      <button class="btn bp" id="translateBtn" style="width:100%;justify-content:center">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Translate
-      </button>
-      <div id="transLoad" class="ait" style="display:none"><div class="dp"><span></span><span></span><span></span></div> Translating…</div>
+      <!-- Result shown inline -->
       <div>
         <div class="fl">Translation</div>
-        <div class="rb rba" id="transResult" style="min-height:120px">Translation will appear here…</div>
+        <div class="rb rba" id="transResult" style="min-height:100px">Translation will appear here…</div>
       </div>
       <div class="fx gap8 wrap">
-        <button class="btn bs" onclick="clipCopy(document.getElementById('transResult').textContent)">📋 Copy Translation</button>
-        <button class="btn bs" onclick="sendToNote(document.getElementById('transResult').textContent)">📝 Send to Notes</button>
+        <button class="btn bs" style="flex:1;justify-content:center" onclick="clipCopy(document.getElementById('transResult').textContent)">📋 Copy</button>
+        <button class="btn bs" style="flex:1;justify-content:center" onclick="sendToNote(document.getElementById('transResult').textContent)">📝 To Notes</button>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ========== REWRITE ========== -->
 <section class="panel" id="panel-rewrite">
   <div class="ph" style="gap:8px">
@@ -1735,6 +1741,9 @@ function vcTab(n){
       else { tab.style.background='transparent'; tab.style.color='var(--t2)'; tab.style.borderBottom='2px solid transparent'; }
     }
   });
+  // Show Translate button only on translate tab
+  var tb=document.getElementById('translateBtn');
+  if(tb) tb.style.display=(n===2)?'flex':'none';
 }
 
 /* ======================================================
